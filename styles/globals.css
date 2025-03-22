@@ -1,0 +1,126 @@
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+:root {
+	--gap: 1rem;
+	--card-width: clamp(280px, 20vw, 100vw);
+	--card-aspect-ratio: 5 / 7;
+	--card-height: calc(var(--card-width) * (7 / 5));
+    --root-icon-stroke-length: 4248;
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+    
+    --top-scroll:0;
+    --p1-scroll:0;
+    --p2-scroll:0;
+    --p3-scroll:0;
+    --p4-scroll:0;
+}
+
+body {
+    margin: 0;
+	display: grid;
+	place-items: center;
+	font-family:  'Google Sans', sans-serif, system-ui;
+	justify-content: center;
+	height: 100vh;
+    width: 100vw;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.section-title{
+    margin: 0;
+    font-size: 2rem;
+    padding: 0;
+}
+
+/* Home screen and process story */
+
+.scroll-transition-sections{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: calc(1% * (var(--top-scroll)));
+    left:0;
+    z-index: 1;
+}
+
+.section.home{
+    background-color: #333;
+}
+
+.section.process1{
+    background-color: #555;
+    top: -100%;
+    left: calc(1% * (100 - var(--p1-scroll)));
+    
+}
+
+.section.process2{
+    background-color: #777;
+    top: calc(-1% * (400 - var(--p2-scroll)));
+}
+
+.section.process3{
+    background-color: #999;
+    top: -300%;
+    right: calc(1% * (100 - var(--p3-scroll)));
+}
+
+.section.process4{
+    background-color: #bbb;
+    top: -500%;
+    right: calc(1% * (100 - var(--p4-scroll)));
+}
+
+.section.process4-transition-page{
+    background-color: #ddd;
+    top: -400%;
+    left: calc(1% * (100 - var(--p4-scroll)));
+}
+
+/* Icon */
+.root-icon{
+    stroke: black;
+    stroke-width: 3;
+    stroke-dasharray: var(--root-icon-stroke-length);
+    stroke-dashoffset: var(--root-icon-stroke-length);
+    fill: transparent;
+    animation: draw_text 5s linear forwards;
+}
+
+@keyframes draw_text {
+    0%{
+        stroke-dashoffset: var(--root-icon-stroke-length);
+    }
+    70%{
+        fill: transparent;
+    }
+    100%{
+        stroke-dashoffset: 0;
+        fill: black;
+    }
+}
+
+.menu-svg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    scale: 1.4;
+}
