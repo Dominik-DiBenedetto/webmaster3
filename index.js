@@ -41,7 +41,6 @@ window.addEventListener("scroll", (e) => {
         document.querySelector(".scroll-transition-sections").classList.add("inactive");
         htmlElm.style.setProperty("--top-scroll", screenHeightScrolled*100);
     }
-    // if (scrollShouldTransition) htmlElm.style.setProperty("--top-scroll", screenHeightScrolled*100);
 })
 
 navbar_links.forEach((link) => {

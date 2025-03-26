@@ -112,38 +112,66 @@ body {
     position: absolute;
 }
 
-.section.home{
-    background-color: #333;
+.scroll-section{
+    background-color: #C1C1B8;
 }
 
 .section.process1{
-    background-color: #555;
     top: -100%;
     left: calc(1% * (100 - var(--p1-scroll)));
-    
+    background-color: #aaaa9d;
 }
 
 .section.process2{
-    background-color: #777;
     top: calc(-1% * (400 - var(--p2-scroll)));
 }
 
 .section.process3{
-    background-color: #999;
     top: -300%;
     right: calc(1% * (100 - var(--p3-scroll)));
+    background-color: #aaaa9d;
 }
 
 .section.process4{
-    background-color: #bbb;
     top: -500%;
     right: calc(1% * (100 - var(--p4-scroll)));
 }
 
 .section.process4-transition-page{
-    background-color: #ddd;
     top: -400%;
     left: calc(1% * (100 - var(--p4-scroll)));
+    background-color: #aaaa9d;
+}
+
+/* Home Page */
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.root-svg{
+    scale: 0.5;
+}
+
+.root-logo{
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: root-logo-draw 5s 100ms linear forwards;
+    transition: fill 500ms;
+}
+
+@keyframes root-logo-draw {
+    0% {
+        stroke-dashoffset: 3000;
+    }
+    90%{
+        fill: transparent;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: #584338;
+    }
 }
 
 /* Icon */
@@ -177,8 +205,8 @@ body {
 }
 
 .menu-holder{
-    stroke-dasharray: 8162;
-    stroke-dashoffset: 7900;
+    stroke-dasharray: 6485;
+    stroke-dashoffset: 3000;
     stroke: red;
 }
 
