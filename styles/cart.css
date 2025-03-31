@@ -1,0 +1,141 @@
+.content{
+    height: calc(100vh - var(--navbar-height));
+    width: 80vw;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.cart{
+    width: 60%;
+    height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-item{
+    width: 100%;
+    height: 10%;
+    min-height: 85px;
+    color: var(--primary-fg);
+}
+
+.cart-item-top{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-name{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+
+.cart-item-name::after{
+    content: '';
+    display: inline-block;
+    flex-grow: 1;
+    height: 50%;
+    background-color: var(--secondary-bg);
+}
+
+.cart-item-name span{
+    display: flex;
+    background-color: var(--primary-bg);
+    font-size: var(--large-text-size);
+    height: 100%;
+    padding: 15px;
+    padding-left: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: 880;
+}
+
+.cart-item-price {
+    color: var(--secondary-fg);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-weight: 650;
+}
+
+.cart-item-bottom{
+    width: 100%;
+    height: 85%;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+.cart-item-description{
+    color: #e2e2e2;
+    font-size: var(--normal-text-size);
+}
+
+.cart-item-quantity{
+    color: var(--secondary-fg);
+    font-weight: 650;
+    font-size: var(--normal-text-size);
+}
+
+.cart-item-bottom .footer{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    height: 50%;
+    align-items: center;
+}
+
+.cart-item-remove{
+    border-radius: 10px;
+    border: none;
+    padding: 5px 15px;
+    background-color: var(--secondary-fg);
+    color:#e2e2e2;
+    font-size: var(--normal-text-size);
+}
+
+.receipt{
+    width: 25%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-items{
+    max-height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.receipt-total{
+    flex-grow: 1;
+    width: 100%;
+    border-top: 2px solid black;
+    font-weight: 660;
+    font-size: var(--normal-text-size);
+}
+
+.receipt-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--normal-text-size);
+    font-weight: 500;
+}

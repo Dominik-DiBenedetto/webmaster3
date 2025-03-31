@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8c856302a6.js" crossorigin="anonymous"></script>
+
+    <link href="/styles/globals.css" rel="stylesheet" />
+    <link href="/styles/cart.css" rel="stylesheet" />
+
+    <script src="javascript/cart.js" defer></script>
+
+    <title>Root. | Cart</title>
+</head>
+<body>
+    <div class="navbar">
+		<a class="navbar-link" data-label="Home" href="/index.html"><i class="fa-solid fa-house"></i></a>
+		<a class="navbar-link active" data-label="Cart" href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a class="navbar-link" data-label="Order Now"><i class="fa-solid fa-phone"></i></a>
+	</div>
+
+    <div class="content">
+        <div class="cart"></div>
+        <div class="receipt">
+            <div class="receipt-items"></div>
+            <div class="receipt-total">
+                Subtotal: $00.00
+            </div>
+        </div>
+    </div>
+</body>
+</html>
