@@ -40,6 +40,7 @@ body{
 .pdf-holder{
     width: 90%;
     height: 90%;
+    pointer-events: none;
 }
 
 .actions{
