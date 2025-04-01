@@ -66,6 +66,16 @@ body {
     src: url("./fonts/guavine-font/GuavineDemoRegular-1jGgL.otf");
 }
 
+a{
+    text-decoration: none;
+}
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
 .section{
     position: relative;
     width: 100vw;
@@ -311,8 +321,8 @@ body {
 }
 
 .salad-cat{
-    left: 25%;
-    top: 25%;
+    left: 20%;
+    top: 15%;
 }
 
 .sandwiches-cat{

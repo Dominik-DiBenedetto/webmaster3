@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/globals.css" />
+    <link rel="stylesheet" href="styles/references.css" />
+    <script src="https://kit.fontawesome.com/8c856302a6.js" crossorigin="anonymous" defer></script>
+    <script src="javascript/references.js" defer></script>
+    <title>Root. | Reference Page</title>
+</head>
+<body>
+    <div class="navbar">
+		<a class="navbar-link" data-label="Home" href="/index.html"><i class="fa-solid fa-house"></i></a>
+		<a class="navbar-link" data-label="Cart" href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a class="navbar-link" data-label="Order Now"><i class="fa-solid fa-phone"></i></a>
+	</div>
+    <div class="citation">
+        <span class="asset-title">Font Awesome</span>
+        <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a>
+    </div>
+    <div class="citation">
+        <span class="asset-title">Font Awesome</span>
+        <a target="_blank" href="https://fontawesome.com/">https://fontawesome.com/</a>
+    </div>
+    <button class="file-view-popup" onclick="open_modal('worklogs')">Worklogs</button>
+    <button class="file-view-popup" onclick="open_modal('checklist')">Copyright Checklist</button>
+
+    <div class="modal">
+        <iframe src="documents/testworklogs.pdf" class="pdf-holder worklogs-holder" frameborder="0"></iframe>
+        <div class="actions">
+            <a href="/documents/testworklogs.pdf" class="view-in-tab">View in new tab</a>
+            <button class="close">X</button>
+        </div>
+    </div>
+
+</body>
+</html>
