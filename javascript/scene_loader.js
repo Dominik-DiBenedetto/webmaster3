@@ -93,7 +93,7 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
 {
     if (modelName.includes("fbx")) {
         fbxLoader.load(
-            `models/${modelName}`,
+            `../public/${modelName}`,
             (object) => {
                 object.traverse(function (child) {
                     if (child.isMesh) {
@@ -115,7 +115,10 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
             }
         )
     } else {
+        console.log(modelName)
         glbLoader.load(modelName, (model) => {
+            console.log(model);
+            console.log(model.scene);
             const mesh = model.scene;
             mesh.traverse(function (child) {
                 if (child.isMesh) {
