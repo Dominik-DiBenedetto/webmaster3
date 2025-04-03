@@ -1,7 +1,8 @@
 import { init, loadModel } from "./scene_loader";
 import * as THREE from 'three';
+import modelUrl from "../public/Salad bar2.gltf";
 const [scene, camera, renderer, controls] = init(window.innerWidth, window.innerHeight, document.body);
-loadModel("Salad bar2.gltf", scene);
+loadModel(modelUrl, scene);
 
 const paintingLight1 = new THREE.PointLight(0xF2DDC5, 1.92)
 paintingLight1.position.set(-2.916, 2.58, -5.028);

@@ -81,7 +81,7 @@ const loadingManager = new THREE.LoadingManager( () => {
 // Load Objects
 
 const fbxLoader = new FBXLoader(loadingManager);
-const glbLoader = new GLTFLoader(loadingManager).setPath("models/");
+const glbLoader = new GLTFLoader(loadingManager);
 
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath("https://www.gstatic.com/draco/versioned/decoders/1.5.7/");
