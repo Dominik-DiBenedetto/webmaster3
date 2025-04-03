@@ -93,7 +93,7 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
 {
     if (modelName.includes("fbx")) {
         fbxLoader.load(
-            `../public/${modelName}`,
+            `../models/${modelName}`,
             (object) => {
                 object.traverse(function (child) {
                     if (child.isMesh) {

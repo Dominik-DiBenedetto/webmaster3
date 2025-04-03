@@ -1,6 +1,6 @@
 import { init, loadModel } from "./scene_loader";
 import * as THREE from 'three';
-import modelUrl from "../public/Salad bar2.gltf";
+import modelUrl from "../models/Salad bar2.gltf";
 const [scene, camera, renderer, controls] = init(window.innerWidth, window.innerHeight, document.body);
 loadModel(modelUrl, scene);
 
