@@ -126,7 +126,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
                 }
             })
             let sceneName = modelName.split("/");
-            sceneName = sceneName[sceneName.length-1].split(".")[0];
+            sceneName = sceneName[sceneName.length-1].split(".")[0].split("-")[0];
 
             mesh.name = sceneName;
             mesh.position.set(...position);
@@ -136,7 +136,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
         },
         (xhr) => {
             if (loadingProg){
-                loadingProg.innerText = `${(xhr.loaded / xhr.total) * 100}% loaded`;
+                loadingProg.innerText = `${Math.round(((xhr.loaded / xhr.total) * 100)*100)/100}% loaded`;
             } else {
                 console.log(modelName + " " + (xhr.loaded / xhr.total) * 100 + '% loaded');
             }
