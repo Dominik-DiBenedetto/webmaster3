@@ -7,6 +7,8 @@ const htmlElm = document.documentElement;
 const menu = document.querySelector(".menu-section");
 const loc = document.querySelector(".location-section");
 
+const recyclingBio = document.querySelector(".s2b")
+
 let scrollShouldTransition = true;
 function scrollTransitions(screenHeightScrolled){
     if (screenHeightScrolled < 1) { // P1
@@ -22,17 +24,36 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--p3-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
-    } else if (screenHeightScrolled < 3) {
+    } else if (screenHeightScrolled < 3) { // P2
         scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p1-scroll", 100);
         htmlElm.style.setProperty("--p2-scroll", 200);
-        htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-2)*100, 100));
+        htmlElm.style.setProperty("--p2s2-scroll", Math.min((screenHeightScrolled-2)*100, 100));
+        htmlElm.style.setProperty("--p3-scroll", 0);
+        document.querySelector(".scroll-transition-sections").classList.remove("inactive");
+        htmlElm.style.setProperty("--recycle-bin-scroll", 0)
+        htmlElm.style.setProperty("--top-scroll", 0);
+    } else if (screenHeightScrolled > 3 && screenHeightScrolled < 4) {
+        scrollShouldTransition = true;
+        let percent = (screenHeightScrolled-3)*100;
+        htmlElm.style.setProperty("--recycle-bin-scroll", percent);
+        if (percent >= 65) {
+            recyclingBio.style.display = "none";
+        } else {
+            recyclingBio.style.display = "block";
+        }
+    } else if (screenHeightScrolled < 5) {
+        scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p2s2-scroll", 100);
+        htmlElm.style.setProperty("--recycle-bin-scroll", (screenHeightScrolled-3)*100);
+        htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-4)*100, 100));
         htmlElm.style.setProperty("--p4-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
-    } else if (screenHeightScrolled < 4) {
+    } else if (screenHeightScrolled < 6) {
         scrollShouldTransition = true;
         htmlElm.style.setProperty("--p3-scroll", 100);
-        htmlElm.style.setProperty("--p4-scroll", Math.min((screenHeightScrolled-3)*100, 100));
+        htmlElm.style.setProperty("--p4-scroll", Math.min((screenHeightScrolled-5)*100, 100));
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
     } else if (scrollShouldTransition) {
@@ -169,14 +190,21 @@ fetch("./menu.json")
         console.error("Error fetchin json", error);
     })
 
-function openMenu(e, menuId)
+function openMenu(menuId)
 {
-    e.preventDefault();
     document.querySelector(".menu-active").classList.remove("menu-active");
     document.querySelector(`.${menuId.toLowerCase()}-menu`).classList.add("menu-active");
 
     document.querySelector(".menu-modal").classList.add("active");
 }
+
+document.querySelectorAll(".menu-cat").forEach((cat) => {
+    console.log(cat)
+    cat.addEventListener("click", (e) => {
+        e.preventDefault();
+        openMenu(cat.getAttribute("data-menu").toLowerCase());
+    })
+})
 
 function addToCart(itemName)
 {

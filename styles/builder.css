@@ -166,3 +166,13 @@ body{
         transform: translate(-50%,-50%) rotate(360deg);
     }
 }
+
+.loading-progress{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}

@@ -42,8 +42,11 @@ html{
     --top-scroll:0;
     --p1-scroll:0;
     --p2-scroll:0;
+    --p2s2-scroll:0;
     --p3-scroll:0;
     --p4-scroll:0;
+
+    --recycle-bin-scroll: 0;
 }
 
 body {
@@ -170,24 +173,34 @@ button{
 
 .section.process2{
     top: calc(-1% * (400 - var(--p2-scroll)));
+    z-index: 3;
+}
+
+.section.process2-2nd{
+    /* top: calc(-1% * (400 - var(--p2s2-scroll))); */
+    top: calc(1% *  (0 - var(--p2s2-scroll)*3));
+    z-index: 4;
 }
 
 .section.process3{
-    top: -300%;
+    top: -400%;
     right: calc(1% * (100 - var(--p3-scroll)));
     background-color: var(--secondary-bg);
+    z-index: 5;
 }
 
 .section.process4{
-    top: -500%;
+    top: -600%;
     right: calc(1% * (100 - var(--p4-scroll)));
     box-shadow: 5px -15px 15px #747474;
+    z-index: 7;
 }
 
 .section.process4-transition-page{
-    top: -400%;
+    top: -500%;
     left: calc(1% * (100 - var(--p4-scroll)));
     background-color: #bfbfb3;
+    z-index: 6;
 }
 
 /* Home Page */
@@ -195,8 +208,15 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("/images/Background1.jpg");
+}
+
+.home .background-img{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url("/images/salad-bar.png");
     background-size:cover;
+    filter: blur(3px) brightness(70%);
 }
 
 .root-svg{
@@ -206,7 +226,7 @@ button{
 .root-logo{
     stroke-dasharray: 3000;
     stroke-dashoffset: 3000;
-    animation: root-logo-draw 5s 100ms linear forwards;
+    animation: root-logo-draw 4s 100ms linear forwards;
     transition: fill 500ms;
 }
 
@@ -215,6 +235,8 @@ button{
 .farm-to-table .section-title{
     position: relative;
     top: 5%;
+    z-index: 2;
+    color: white;
 }
 
 .farm-to-table .section-body{
@@ -223,24 +245,29 @@ button{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60vw;
+    z-index: 2;
+    color: white;
 }
 
-.farm-to-table .animation-holder{
-    position: absolute;
-    bottom: 0%;
-    /* transform: translateY(-50%); */
-    width: 100vw;
-    height: 50%;
-    background-color: transparent;
-    overflow: visible;
-}
+
 
 .anim-holder-frame{
     height: 100%;
     width: 100%;
 }
 
+.animation-player{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+
+}
+
 /* Sustainability page */
+
 .sustainability .section-body{
     position: absolute;
     width: 25%;
@@ -264,6 +291,23 @@ button{
     bottom: 0;
 }
 
+.sustainability2 .section-body{
+    position: absolute;
+    width: 35%;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding-top: 2rem;
+}
+
+.recycle-bin{
+    position: relative;
+    height: 50%;
+    aspect-ratio: 2.25/1;
+    top: calc(70% - (1%*var(--recycle-bin-scroll)));
+
+}
+
 @keyframes root-logo-draw {
     0% {
         stroke-dashoffset: 3000;
@@ -284,7 +328,7 @@ button{
     stroke-dasharray: var(--root-icon-stroke-length);
     stroke-dashoffset: var(--root-icon-stroke-length);
     fill: transparent;
-    animation: draw_text 5s linear forwards;
+    animation: draw_text 2s linear forwards;
 }
 
 @keyframes draw_text {
@@ -458,7 +502,7 @@ button{
     gap: 1rem;
 }
 
-.salad-menu{
+.salads-menu{
     height: 100%;
     width: 100%;
     display: none;

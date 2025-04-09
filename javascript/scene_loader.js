@@ -16,7 +16,7 @@ export function init(width, height, parent, fov=75){
     // scene.add(light)
 
     const camera = new THREE.PerspectiveCamera(fov, width/height, 0.1, 1000);
-    camera.position.set(0.8, 1.4, 1.0)
+    camera.position.set(0, 1.5, 0)
 
     // Configure renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -37,7 +37,7 @@ export function init(width, height, parent, fov=75){
     // Add orbital controls so we can move around
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true
-    controls.target.set(0, 1, 0)
+    controls.target.set(0, 0, 0);
 
     window.addEventListener('resize', onWindowResize, false)
     function onWindowResize() {
@@ -47,17 +47,9 @@ export function init(width, height, parent, fov=75){
         render();
     }
 
-    function animate() { // render loop
-        requestAnimationFrame(animate);
-        controls.update();
-        render();
-    }
-
     function render() {
         renderer.render(scene, camera);
     }
-
-    animate();
 
     return [scene, camera, renderer, controls]
 }
@@ -89,7 +81,7 @@ dracoLoader.setDecoderConfig({ type: "js" });
 
 glbLoader.setDRACOLoader(dracoLoader);
 
-export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
+export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], scale=[1,1,1])
 {
     if (modelName.includes("fbx")) {
         fbxLoader.load(
@@ -108,7 +100,11 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
                 scene.add(object)
             },
             (xhr) => {
-                console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+                if (loadingProg){
+                    loadingProg.innerText = `${(xhr.loaded / xhr.total) * 100}% loaded`;
+                } else {
+                    console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+                }
             },
             (error) => {
                 console.log(error)
@@ -117,8 +113,6 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
     } else {
         console.log(modelName)
         glbLoader.load(modelName, (model) => {
-            console.log(model);
-            console.log(model.scene);
             const mesh = model.scene;
             mesh.traverse(function (child) {
                 if (child.isMesh) {
@@ -131,12 +125,21 @@ export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1])
                     console.log(child)
                 }
             })
+            let sceneName = modelName.split("/");
+            sceneName = sceneName[sceneName.length-1].split(".")[0];
+
+            mesh.name = sceneName;
             mesh.position.set(...position);
             mesh.scale.set(...scale);
+
             scene.add(mesh)
         },
         (xhr) => {
-            console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+            if (loadingProg){
+                loadingProg.innerText = `${(xhr.loaded / xhr.total) * 100}% loaded`;
+            } else {
+                console.log(modelName + " " + (xhr.loaded / xhr.total) * 100 + '% loaded');
+            }
         },
         (error) => {
             console.log(error)
