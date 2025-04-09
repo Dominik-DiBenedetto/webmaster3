@@ -74,7 +74,7 @@ function handleKeyboardInput(delta) {
     camera.rotation.setFromVector3(cameraRotation);
     if (camera.position.x < 2.324 && camera.position.x > -2.4) {
       platePos.x = camera.position.x;
-      plate.position.copy(platePos);
+      if (plate != null) plate.position.copy(platePos);
     }
   }
 
@@ -96,16 +96,16 @@ window.addEventListener("keyup", (e) => {
     console.log(camera.position)
 })
 
-window.addEventListener("click", (e) => {
-  console.log(scene.getObjectByName("tongs"));
-  if (leftTong == null || rightTong == null) {
-    let tongs = scene.getObjectByName("tongs");
-    leftTong = tongs.children[0];
-    rightTong = tongs.children[1];
-    console.log(leftTong, rightTong);
-  }
+// window.addEventListener("click", (e) => {
+//   console.log(scene.getObjectByName("tongs"));
+//   if (leftTong == null || rightTong == null) {
+//     let tongs = scene.getObjectByName("tongs");
+//     leftTong = tongs.children[0];
+//     rightTong = tongs.children[1];
+//     console.log(leftTong, rightTong);
+//   }
   
-})
+// })
 
 function animate() { // render loop
     let delta = clock.getDelta();
