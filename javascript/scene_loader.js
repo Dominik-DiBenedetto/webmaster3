@@ -121,7 +121,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
                         child.material.transparent = false
                     }
                 } else if (child.isLight) {
-                    child.intensity = 20;
+                    child.intensity = 15;
                     console.log(child)
                 }
             })

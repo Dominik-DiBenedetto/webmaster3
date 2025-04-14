@@ -351,7 +351,7 @@ button{
     flex-direction: column;
     height: 250vh;
     padding-top: 10%;
-    background-color: var(--dark-warm-gray);
+    background: url("../images/menu\ bg.png");
 }
 
 .menu-holder{
@@ -362,9 +362,8 @@ button{
 
 .menu-cat{
     position: absolute;
-    width: 150px;
+    width: 250px;
     aspect-ratio: 1/1;
-    background-color: blue;
     z-index: 100;
 }
 
@@ -393,26 +392,46 @@ button{
 .salad-cat{
     left: 20%;
     top: 15%;
+    background: url("../images/Salad.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sandwiches-cat{
     left: 65%;
-    top: 32%;
+    top: 34%;
+    background: url("../images/sandwich.png");
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .wraps-cat{
     left: 2.5%;
     top: 42%;
+    background: url("../images/wraps.png");
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .soups-cat{
     left: 65%;
-    top: 61%;
+    top: 58%;
+    background: url("../images/soup.png");
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .drinks-cat{
-    left: 7%;
-    top: 88%;
+    left: 5%;
+    top: 85%;
+    background: url("../images/drinks.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .menu-modal{

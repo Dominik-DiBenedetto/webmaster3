@@ -94,16 +94,16 @@ window.addEventListener("scroll", (e) => {
     const menuScrollHeight = htmlElm.scrollTop/menu.clientHeight;
     console.log(menuScrollHeight);
 
-    let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 2.1, 1.88, menuScrollHeight);
+    let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 2.85, 2.7, menuScrollHeight);
     htmlElm.style.setProperty("--salad-sandwich-cur-scroll", saladSandDashoffset);
 
-    let sandWrapDashoffset = getMenuLineDashoffset(sand_wrap_line, 2.22, 2.05, menuScrollHeight, true);
+    let sandWrapDashoffset = getMenuLineDashoffset(sand_wrap_line, 3, 2.85, menuScrollHeight, true);
     htmlElm.style.setProperty("--sandwich-wrap-cur-scroll", sandWrapDashoffset);
 
-    let wrapSoupDashoffset = getMenuLineDashoffset(wrap_soup_line, 2.49, 2.22, menuScrollHeight);
+    let wrapSoupDashoffset = getMenuLineDashoffset(wrap_soup_line, 3.11, 3, menuScrollHeight);
     htmlElm.style.setProperty("--wrap-soup-cur-scroll", wrapSoupDashoffset);
 
-    let soupDrinkDashoffset = getMenuLineDashoffset(soup_drink_line, 2.6, 2.49, menuScrollHeight);
+    let soupDrinkDashoffset = getMenuLineDashoffset(soup_drink_line, 3.39, 3.11, menuScrollHeight);
     htmlElm.style.setProperty("--soup-drink-cur-scroll", soupDrinkDashoffset);
 })
 
