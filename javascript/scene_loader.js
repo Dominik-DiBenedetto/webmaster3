@@ -81,7 +81,15 @@ dracoLoader.setDecoderConfig({ type: "js" });
 
 glbLoader.setDRACOLoader(dracoLoader);
 
-export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], scale=[1,1,1])
+function degToRadians(rot){
+    let rads = [];
+    for (let i=0; i<rot.length; i++){
+        rads.push(rot[i]*Math.PI/180)
+    }
+    return rads;
+}
+
+export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], scale=[1,1,1], rotation=[0,0,0], shouldZeroChildren=false)
 {
     if (modelName.includes("fbx")) {
         fbxLoader.load(
@@ -93,6 +101,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
                         if (child.material) {
                             child.material.transparent = false
                         }
+                        child.position.set(0,0,0);
                     }
                 })
                 mesh.position.set(...position);
@@ -120,9 +129,18 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
                     if (child.material) {
                         child.material.transparent = false
                     }
+                    if (shouldZeroChildren){
+                        child.traverse(function (subchild) {
+                            if (subchild.isMesh) {
+                                subchild.position.set(0,0,0);
+                                subchild.scale.set(1,1,1);
+                                subchild.rotation.set(0,0,0);
+                            };
+                        })
+                    }
                 } else if (child.isLight) {
                     child.intensity = 15;
-                    console.log(child)
+                    
                 }
             })
             let sceneName = modelName.split("/");
@@ -131,6 +149,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
             mesh.name = sceneName;
             mesh.position.set(...position);
             mesh.scale.set(...scale);
+            mesh.rotation.set(...degToRadians(rotation));
 
             scene.add(mesh)
         },
