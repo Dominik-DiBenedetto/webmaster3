@@ -499,32 +499,34 @@ button{
 
 .image-side{
     height: 100%;
-    width: 40%;
+    width: 45%;
     background-color: white;
 }
 
 .menu-side{
-    width: 60%;
+    width: 55%;
     height: 100%;
-    overflow-y: scroll;
+    overflow: none;
     padding-left: 2.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu{
     display: none;
+    width: 70%;
+    height: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-color: var(--secondary-fg) transparent;
+    padding: 0.25rem;
 }
 
 .menu.menu-active{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-.salads-menu{
-    height: 100%;
-    width: 100%;
-    display: none;
-    padding: 10px;
+    gap: 2rem;
 }
 
 .menu-item{

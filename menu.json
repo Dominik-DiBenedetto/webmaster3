@@ -1,73 +1,58 @@
 {
     "salads": {
-        "A salad": {
+        "House Salad": {
+            "Price": 8.99,
+            "Description": "Standard house salad with choices of romaine or iceberg lettuce, tomatoes, cucumber, red onions, croutons, and cheddar cheese.",
+            "Calories": 314
+        },
+        "Caesar Salad": {
             "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Description": "Romaine or iceberg lettuce with choices of croutons, olive oil, eggs, garlic, dijon mustard, and parmesan",
             "Calories": 340
         },
-        "A salad2": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
+        "Cucumber Salad": {
+            "Price": 4.99,
+            "Description": "Sliced cucumber choices of sesame seeds, sesame oil, chili oil, cream cheese, vinegar, onions, garlic, MSG, or sugar.",
+            "Calories": 450
         },
-        "A salad3": {
+        "Wedge Salad": {
             "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
+            "Description": "An iceberg wedge topped with ranch, greek dressing or vinnaigrette, tomatoes, minced garlic, red onion, crumbled blue cheese, and balsamic dressing. ",
+            "Calories": 360
         },
-        "A salad4": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A salad5": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A salad6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A salad7": {
+        "Greek Salad": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         }
     },
     "sandwiches": {
-        "A sandwich": {
+        "White Bean and Avocado Sandwich": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         },
-        "A sandwich2": {
+        "Chickpea Salad Sandwich": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         },
-        "A sandwich3": {
+        "Caprese Sandwich": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         },
-        "A sandwich4": {
+        "Mushroom Melts": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         },
-        "A sandwich5": {
+        "Grilled Cheese": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340
         },
-        "A sandwich6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A sandwich7": {
+        "Veggie Pita": {
             "Price": 9.99,
             "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
             "Calories": 340

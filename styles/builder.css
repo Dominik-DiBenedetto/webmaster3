@@ -186,10 +186,10 @@ body{
 .order-frame{
     position: absolute;
     z-index: 5000;
-    width: 25vw;
-    height: 50%;
+    width: 270px;
+    height: 270px;
     min-height: 1.5rem;
-    min-width: 125px;
+    min-width: 175px;
     background-color: #58433884;
     resize: both;
     overflow-y: auto;
@@ -254,4 +254,51 @@ body{
     color:red;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.checkout.active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkout{
+    position: absolute;
+    z-index: 5000;
+    width: 30vw;
+    height: 70vh;
+    background-color: #584338ca;
+    resize: both;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    -moz-box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    border-radius: .5rem;
+
+    display: none;
+    padding-bottom: 1rem;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #ddd;
+}
+
+.more-options{
+    width: 100%;
+    height: 35%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.387);
+}
+
+.review-order{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
 }

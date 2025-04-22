@@ -286,8 +286,8 @@ let menu = {
 function createUIOrderItem(itemName){
   let price = menu[itemName];
   if (price == null) {alert("invalid item?"); return;}
-  let order = document.createElement("div");
-  order.classList.add("order");
+  let orderElm = document.createElement("div");
+  orderElm.classList.add("order");
 
   let itemNameSpan = document.createElement("span");
   itemNameSpan.classList.add("item-name");
@@ -311,14 +311,22 @@ function createUIOrderItem(itemName){
   xLogo.classList.add("fa-x");
   removeBtn.appendChild(xLogo);
 
-  order.appendChild(itemNameSpan);
-  order.appendChild(filler);
-  order.appendChild(filler2);
-  order.appendChild(filler3);
-  order.appendChild(itemPrice);
-  order.appendChild(removeBtn);
+  removeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    order[itemName] = null;
+    foods.forEach(food => {
+      if (food.name == itemName) food.position.set(0,0,0);
+    })
+  })
 
-  document.querySelector(".orders").appendChild(order);
+  orderElm.appendChild(itemNameSpan);
+  orderElm.appendChild(filler);
+  orderElm.appendChild(filler2);
+  orderElm.appendChild(filler3);
+  orderElm.appendChild(itemPrice);
+  orderElm.appendChild(removeBtn);
+
+  document.querySelector(".orders").appendChild(orderElm);
   if (!ORDER_DIV.classList.contains("active")) ORDER_DIV.classList.add("active");
 }
 
