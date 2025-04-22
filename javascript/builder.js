@@ -16,6 +16,8 @@ import tomatoesUrl from "../models/tomatoes.glb";
 
 const [scene, camera, renderer, controls] = init(window.innerWidth, window.innerHeight, document.body);
 
+const ORDER_DIV = document.querySelector(".order-frame");
+
 // Objects
 let plate, tongs, leftTong, rightTong = null;
 
@@ -165,6 +167,7 @@ function handleTongs(delta)
       tongTween = new TWEEN.Tween(tongs.position).to({ x: platePos.x, y: platePos.y+.2, z: platePos.z-0.8 }, 500).easing(TWEEN.Easing.Cubic.In).start().onComplete(() => {
         let tongMousePos = followMouse(tongs, true);
         order[foodItem.parent.name] = offset;
+        createUIOrderItem(foodItem.parent.name);
         tongTween = new TWEEN.Tween(tongs.position).to({ x: tongMousePos.x, y: tongMousePos.y, z: tongMousePos.z }, 500).easing(TWEEN.Easing.Cubic.In).start().onComplete(() => {
           grabbingFood = false;
         });
@@ -270,3 +273,87 @@ function render() {
 }
 
 animate();
+
+
+// ORDER UI
+
+let menu = {
+  "lettuce": 0.99,
+  "tomatoes": 1.39,
+  "croutons": 0.49
+};
+
+function createUIOrderItem(itemName){
+  let price = menu[itemName];
+  if (price == null) {alert("invalid item?"); return;}
+  let order = document.createElement("div");
+  order.classList.add("order");
+
+  let itemNameSpan = document.createElement("span");
+  itemNameSpan.classList.add("item-name");
+  itemNameSpan.textContent = itemName;
+
+  let filler = document.createElement("span");
+  filler.classList.add("item-filler");
+  let filler2 = document.createElement("span");
+  filler2.classList.add("item-filler");
+  let filler3 = document.createElement("span");
+  filler3.classList.add("item-filler");
+
+  let itemPrice = document.createElement("span");
+  itemPrice.classList.add("item-price");
+  itemPrice.textContent = `$${price}`;
+
+  let removeBtn = document.createElement("span");
+  removeBtn.classList.add("remove-item");
+  let xLogo = document.createElement("i");
+  xLogo.classList.add("fa-solid");
+  xLogo.classList.add("fa-x");
+  removeBtn.appendChild(xLogo);
+
+  order.appendChild(itemNameSpan);
+  order.appendChild(filler);
+  order.appendChild(filler2);
+  order.appendChild(filler3);
+  order.appendChild(itemPrice);
+  order.appendChild(removeBtn);
+
+  document.querySelector(".orders").appendChild(order);
+  if (!ORDER_DIV.classList.contains("active")) ORDER_DIV.classList.add("active");
+}
+
+// Dragging
+dragElement(ORDER_DIV);
+
+function dragElement(elm) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  elm.querySelector(".header").onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elm.style.top = (elm.offsetTop - pos2) + "px";
+    elm.style.left = (elm.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}

@@ -176,3 +176,82 @@ body{
     font-weight: 600;
     color: white;
 }
+
+.order-frame.active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-frame{
+    position: absolute;
+    z-index: 5000;
+    width: 25vw;
+    height: 50%;
+    min-height: 1.5rem;
+    min-width: 125px;
+    background-color: #58433884;
+    resize: both;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 5%;
+    top: 15%;
+    box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    -moz-box-shadow: 3px 3px 28px 1px rgba(0,0,0,0.24);
+    border-radius: .5rem;
+
+    display: none;
+    padding-bottom: 1rem;
+}
+
+.order-frame .header{
+    cursor: move;
+    width: 100%;
+    height: 5%;
+    max-height: 5%;
+    min-height: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ddd;
+    text-align: center;
+}
+
+.orders{
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.order{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10%;
+    min-height: 1.25rem;
+    width: 90%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.333);
+}
+
+.item-name{
+    color:#ddd;
+    font-weight: bolder;
+    font-size: 1.25rem;
+}
+
+.item-price{
+    color: #aaa;
+    font-weight: normal;
+}
+
+.remove-item{
+    color:red;
+    font-weight: bolder;
+    cursor: pointer;
+}
