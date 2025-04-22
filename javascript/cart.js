@@ -1,3 +1,5 @@
+import menuURL from "../menu.json";
+
 const cart = document.querySelector(".cart");
 const receiptItems = document.querySelector(".receipt-items");
 const receiptSubtotal = document.querySelector(".receipt-total");
@@ -5,7 +7,7 @@ const receiptSubtotal = document.querySelector(".receipt-total");
 let menu = {};
 let receipt = {}
 
-fetch("../menu.json")
+fetch(menuURL)
     .then(response => response.json())
     .then(data => {
         for (const [cat, item] of Object.entries(data)) {
