@@ -1,4 +1,4 @@
-import menuURL from "../menu.json";
+import menuData from "../menu.json";
 
 const cart = document.querySelector(".cart");
 const receiptItems = document.querySelector(".receipt-items");
@@ -7,24 +7,20 @@ const receiptSubtotal = document.querySelector(".receipt-total");
 let menu = {};
 let receipt = {}
 
-fetch(menuURL)
-    .then(response => response.json())
-    .then(data => {
-        for (const [cat, item] of Object.entries(data)) {
-            for (const [itemName, properties] of Object.entries(item)) {
-                menu[itemName] = properties;
-            }
+
+if (menuData != null) {
+    for (const [cat, item] of Object.entries(menuData)) {
+        for (const [itemName, properties] of Object.entries(item)) {
+            menu[itemName] = properties;
         }
-        for (let i=0; i<localStorage.length; i++)
-        {
-            let itemName = localStorage.key(i);
-            let quantity = localStorage.getItem(itemName);
-            createCartItem(itemName, menu[itemName], quantity, cart);
-        }
-    })
-    .catch(error => {
-        console.error("Error fetchin json", error);
-    })
+    }
+    for (let i=0; i<localStorage.length; i++)
+    {
+        let itemName = localStorage.key(i);
+        let quantity = localStorage.getItem(itemName);
+        createCartItem(itemName, menu[itemName], quantity, cart);
+    }
+}
 
 function roundToTwo(num) {
     return +(Math.round(num + "e+2")  + "e-2");
