@@ -85,6 +85,8 @@ button{
     height: 100vh;
     text-align: center;
     overflow: hidden;
+
+    transition: all 100ms;
 }
 
 .section-title{

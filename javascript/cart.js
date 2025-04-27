@@ -1,4 +1,4 @@
-import menuData from "../menu.json";
+import menuData from "../public/menu.json";
 
 const cart = document.querySelector(".cart");
 const receiptItems = document.querySelector(".receipt-items");

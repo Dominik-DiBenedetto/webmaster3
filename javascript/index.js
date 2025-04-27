@@ -1,3 +1,5 @@
+import menuData from "../public/menu.json";
+
 const sections_holder = document.querySelector(".scroll-transition-sections");
 const root_icon = document.querySelector("root-icon");
 const navbar_links = document.querySelectorAll(".navbar-link");
@@ -124,71 +126,66 @@ navbar_links.forEach((link) => {
 })
 
 // Populate menu
-fetch("./menu.json")
-    .then(response => response.json())
-    .then(data => {
-        for (const [cat, item] of Object.entries(data)) {
-            let menuTab = document.querySelector(`.${cat.toLowerCase()}-menu`);
-            console.log(menuTab)
-            if (menuTab == null) continue;
-            for (const [itemName, properties] of Object.entries(item)) {
-                let menuItem = document.createElement("div");
-                menuItem.classList.add("menu-item");
+if (menuData != null) {
+    for (const [cat, item] of Object.entries(menuData)) {
+        let menuTab = document.querySelector(`.${cat.toLowerCase()}-menu`);
+        console.log(menuTab)
+        if (menuTab == null) continue;
+        for (const [itemName, properties] of Object.entries(item)) {
+            let menuItem = document.createElement("div");
+            menuItem.classList.add("menu-item");
 
-                let topDiv = document.createElement("div")
-                topDiv.classList.add("menu-item-top");
+            let topDiv = document.createElement("div")
+            topDiv.classList.add("menu-item-top");
 
-                let name = document.createElement("div")
-                name.classList.add("menu-item-name");
-                
-                let nameSpan = document.createElement("span");
-                nameSpan.textContent = itemName;
-                name.appendChild(nameSpan);
+            let name = document.createElement("div")
+            name.classList.add("menu-item-name");
+            
+            let nameSpan = document.createElement("span");
+            nameSpan.textContent = itemName;
+            name.appendChild(nameSpan);
 
-                let price = document.createElement("div")
-                price.classList.add("menu-item-price");
-                price.textContent = `$${properties["Price"]}`
+            let price = document.createElement("div")
+            price.classList.add("menu-item-price");
+            price.textContent = `$${properties["Price"]}`
 
-                topDiv.appendChild(name);
-                topDiv.appendChild(price);
+            topDiv.appendChild(name);
+            topDiv.appendChild(price);
 
-                let bottomDiv = document.createElement("div");
-                bottomDiv.classList.add("menu-item-bottom");
+            let bottomDiv = document.createElement("div");
+            bottomDiv.classList.add("menu-item-bottom");
 
-                let desc = document.createElement("div");
-                desc.classList.add("menu-item-description");
-                desc.textContent = properties["Description"];
+            let desc = document.createElement("div");
+            desc.classList.add("menu-item-description");
+            desc.textContent = properties["Description"];
 
-                let footer = document.createElement("div")
-                footer.classList.add("footer");
+            let footer = document.createElement("div")
+            footer.classList.add("footer");
 
-                let calories = document.createElement("div");
-                calories.classList.add("menu-item-calories");
-                calories.textContent = `${properties["Calories"]}cal`;
+            let calories = document.createElement("div");
+            calories.classList.add("menu-item-calories");
+            calories.textContent = `${properties["Calories"]}cal`;
 
-                let addBtn = document.createElement("button")
-                addBtn.classList.add("menu-item-add");
-                addBtn.textContent = "Add to Order";
+            let addBtn = document.createElement("button")
+            addBtn.classList.add("menu-item-add");
+            addBtn.textContent = "Add to Order";
 
-                addBtn.addEventListener("click", () => addToCart(itemName))
+            addBtn.addEventListener("click", () => addToCart(itemName))
 
-                footer.appendChild(calories);
-                footer.appendChild(addBtn);
+            footer.appendChild(calories);
+            footer.appendChild(addBtn);
 
-                bottomDiv.appendChild(desc);
-                bottomDiv.appendChild(footer);
+            bottomDiv.appendChild(desc);
+            bottomDiv.appendChild(footer);
 
 
-                menuItem.appendChild(topDiv);
-                menuItem.appendChild(bottomDiv);
+            menuItem.appendChild(topDiv);
+            menuItem.appendChild(bottomDiv);
 
-                menuTab.appendChild(menuItem);
-            }
+            menuTab.appendChild(menuItem);
         }
-    })
-    .catch(error => {
-        console.error("Error fetchin json", error);
-    })
+    }
+}
 
 function openMenu(menuId)
 {
