@@ -10,6 +10,7 @@ const menu = document.querySelector(".menu-section");
 const loc = document.querySelector(".location-section");
 
 const recyclingBio = document.querySelector(".s2b")
+const recyclingBio2 = document.querySelector(".recycle-bio-2")
 
 let scrollShouldTransition = true;
 function scrollTransitions(screenHeightScrolled){
@@ -39,28 +40,54 @@ function scrollTransitions(screenHeightScrolled){
         scrollShouldTransition = true;
         let percent = (screenHeightScrolled-3)*100;
         htmlElm.style.setProperty("--recycle-bin-scroll", percent);
-        if (percent >= 65) {
+        if (percent >= 77) {
             recyclingBio.style.display = "none";
+            recyclingBio2.style.display = "block";
         } else {
             recyclingBio.style.display = "block";
+            recyclingBio2.style.display = "none";
         }
-    } else if (screenHeightScrolled < 5) {
+    } else if (screenHeightScrolled < 5.6) {
         scrollShouldTransition = true;
         htmlElm.style.setProperty("--p2s2-scroll", 100);
         htmlElm.style.setProperty("--recycle-bin-scroll", (screenHeightScrolled-3)*100);
-        htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-4)*100, 100));
+        htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-4.6)*100, 100));
         htmlElm.style.setProperty("--p4-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
-    } else if (screenHeightScrolled < 6) {
+    } else if (screenHeightScrolled < 6.6) {
         scrollShouldTransition = true;
         htmlElm.style.setProperty("--p3-scroll", 100);
-        htmlElm.style.setProperty("--p4-scroll", Math.min((screenHeightScrolled-5)*100, 100));
+        htmlElm.style.setProperty("--p4-scroll", Math.min((screenHeightScrolled-5.6)*100, 100));
+        document.querySelector(".scroll-transition-sections").classList.remove("inactive");
+        htmlElm.style.setProperty("--top-scroll", 0);
+        htmlElm.style.setProperty("--p5-scroll", 0);
+    }
+    else if (screenHeightScrolled < 7.6) {
+        scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p4-scroll", 100);
+        htmlElm.style.setProperty("--p5-scroll", Math.min((screenHeightScrolled-6.6)*100, 100));
+        document.querySelector(".scroll-transition-sections").classList.remove("inactive");
+        htmlElm.style.setProperty("--top-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+    }
+    else if (screenHeightScrolled < 8.6) {
+        scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p5-scroll", 100);
+        htmlElm.style.setProperty("--p6-scroll", Math.min((screenHeightScrolled-7.6)*100, 100));
+        document.querySelector(".scroll-transition-sections").classList.remove("inactive");
+        htmlElm.style.setProperty("--top-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
+    }
+    else if (screenHeightScrolled < 9.8) {
+        scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p6-scroll", 100);
+        htmlElm.style.setProperty("--p7-scroll", Math.min((screenHeightScrolled-8.6)*100, 100));
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
     } else if (scrollShouldTransition) {
         scrollShouldTransition = false;
-        htmlElm.style.setProperty("--p4-scroll", 100);
+        htmlElm.style.setProperty("--p7-scroll", 100);
         document.querySelector(".scroll-transition-sections").classList.add("inactive");
         htmlElm.style.setProperty("--top-scroll", screenHeightScrolled*100);
     }
@@ -91,21 +118,22 @@ window.addEventListener("scroll", (e) => {
     
     const screenHeightScrolled = htmlElm.scrollTop/sections_holder.clientHeight;
     scrollTransitions(screenHeightScrolled);
+    // console.log(screenHeightScrolled)
 
     // Menu lines
     const menuScrollHeight = htmlElm.scrollTop/menu.clientHeight;
-    console.log(menuScrollHeight);
+    // console.log(menuScrollHeight);
 
-    let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 2.85, 2.7, menuScrollHeight);
+    let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 4.4, 4.29, menuScrollHeight);
     htmlElm.style.setProperty("--salad-sandwich-cur-scroll", saladSandDashoffset);
 
-    let sandWrapDashoffset = getMenuLineDashoffset(sand_wrap_line, 3, 2.85, menuScrollHeight, true);
+    let sandWrapDashoffset = getMenuLineDashoffset(sand_wrap_line, 4.56, 4.45, menuScrollHeight, true);
     htmlElm.style.setProperty("--sandwich-wrap-cur-scroll", sandWrapDashoffset);
 
-    let wrapSoupDashoffset = getMenuLineDashoffset(wrap_soup_line, 3.11, 3, menuScrollHeight);
+    let wrapSoupDashoffset = getMenuLineDashoffset(wrap_soup_line, 4.67, 4.56, menuScrollHeight);
     htmlElm.style.setProperty("--wrap-soup-cur-scroll", wrapSoupDashoffset);
 
-    let soupDrinkDashoffset = getMenuLineDashoffset(soup_drink_line, 3.39, 3.11, menuScrollHeight);
+    let soupDrinkDashoffset = getMenuLineDashoffset(soup_drink_line, 4.89, 4.67, menuScrollHeight);
     htmlElm.style.setProperty("--soup-drink-cur-scroll", soupDrinkDashoffset);
 })
 
