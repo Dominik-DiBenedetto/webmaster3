@@ -132,6 +132,43 @@
             "Calories": 340
         }
     },
+    "deserts": {
+        "Chocolate Chip Cookies": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "Oatmeal Raisin Cookie": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "Apple Pie (Slice)": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "A soup4": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "A soup5": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "A soup6": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        },
+        "A soup7": {
+            "Price": 9.99,
+            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
+            "Calories": 340
+        }
+    },
     "drinks": {
         "A drink": {
             "Price": 9.99,

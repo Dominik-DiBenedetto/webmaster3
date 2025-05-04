@@ -30,10 +30,17 @@
     --small-text-size: 0.75rem;
     --navbar-text-size: 1.25rem;
 
-    --salad-sandwich-cur-scroll: 564;
-    --sandwich-wrap-cur-scroll: 409;
-    --wrap-soup-cur-scroll: 667;
-    --soup-drink-cur-scroll: 598;
+    --salad-sandwich-cur-scroll: 4136;
+    --sandwich-wrap-cur-scroll: 2167;
+    --wrap-soup-cur-scroll: 4082;
+    --soup-desert-cur-scroll: 5390;
+    --desert-drink-cur-scroll: 3699;
+
+    --mobile-salad-sandwich-cur-scroll: 913;
+    --mobile-sandwich-wrap-cur-scroll: 716;
+    --mobile-wrap-soup-cur-scroll: 800;
+    --mobile-soup-desert-cur-scroll: 834;
+    --mobile-desert-drink-cur-scroll: 1744;
 }
 
 html{
@@ -95,7 +102,6 @@ button{
 
 .section-title{
     margin: 0;
-    font-size: 4rem;
     padding: 0;
     font-family: guavine;
     font-size: var(--title-text-size);
@@ -118,9 +124,8 @@ button{
     transform: translate(0, -50%);
     display: flex;
     flex-direction: column;
-    gap: 0.05vh;
     height: 40vh;
-    aspect-ratio: 1/6;
+    aspect-ratio: 1/7;
     min-width: 1.5rem;
     background-color: rgb(40, 39, 39);
     align-items: center;
@@ -138,6 +143,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: color 250ms;
 }
 
 .navbar-link.active, .navbar-link:hover{
@@ -177,6 +183,7 @@ button{
 .scroll-section{
     background-color: var(--main-bg);
     overflow: hidden;
+    box-shadow: 5px -15px 15px #747474;
 }
 
 .section.process1{
@@ -192,7 +199,7 @@ button{
     height: 100vh;
     top:0;
     right: calc(1% * var(--p1-scroll));
-    background: linear-gradient(90deg, gray, transparent);
+    background: linear-gradient(90deg, gray, 60%, transparent);
     z-index: 3;
 }
 
@@ -205,6 +212,7 @@ button{
     /* top: calc(-1% * (400 - var(--p2s2-scroll))); */
     top: calc(1% *  (0 - var(--p2s2-scroll)*3));
     z-index: 4;
+    box-shadow: none;
 }
 
 .section.process3{
@@ -217,7 +225,6 @@ button{
 .section.process4{
     top: -600%;
     right: calc(1% * (100 - var(--p4-scroll)));
-    box-shadow: 5px -15px 15px #747474;
     z-index: 7;
 }
 
@@ -440,11 +447,81 @@ button{
     padding-top: 10%;
 }
 
+/* Menu Lines */
+.menu-line{
+    transition: stroke-dashoffset 500ms;
+}
+
 .menu-holder{
     /* scale: 1.5 2.5; */
     height: 100%;
     width: 90%;
+    display: block;
+    scale: 1 2;
+    transform: translateY(25%);
 }
+
+.salad-sandwich-line{
+    stroke-dasharray: 4135;
+    stroke-dashoffset: var(--salad-sandwich-cur-scroll);
+}
+
+.sandwich-wrap-line{
+    stroke-dasharray: 2167;
+    stroke-dashoffset: var(--sandwich-wrap-cur-scroll);
+}
+
+.wrap-soup-line{
+    stroke-dasharray: 4082;
+    stroke-dashoffset: var(--wrap-soup-cur-scroll);
+}
+
+.soup-desert-line{
+    stroke-dasharray: 5390;
+    stroke-dashoffset: var(--soup-desert-cur-scroll);
+}
+
+.desert-drink-line{
+    stroke-dasharray: 3699;
+    stroke-dashoffset: var(--desert-drink-cur-scroll);
+}
+
+/* Mobile menu lines */
+
+.mobile-lines{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile.salad-sandwich-line{
+    stroke-dasharray: 913;
+    stroke-dashoffset: var(--mobile-salad-sandwich-cur-scroll);
+}
+
+.mobile.sandwich-wrap-line{
+    stroke-dasharray: 716;
+    stroke-dashoffset: var(--mobile-sandwich-wrap-cur-scroll);
+}
+
+.mobile.wrap-soup-line{
+    stroke-dasharray: 800;
+    stroke-dashoffset: var(--mobile-wrap-soup-cur-scroll);
+}
+
+.mobile.soup-desert-line{
+    stroke-dasharray: 834;
+    stroke-dashoffset: var(--mobile-soup-desert-cur-scroll);
+}
+
+.mobile.desert-drink-line{
+    stroke-dasharray: 1744;
+    stroke-dashoffset: var(--mobile-desert-drink-cur-scroll);
+}
+
+/* More menu stuff */
 
 .menu-cat{
     position: absolute;
@@ -494,8 +571,8 @@ button{
 }
 
 .wraps-cat{
-    left: 2.5%;
-    top: 42%;
+    left: 22%;
+    top: 38%;
     background: url("../public/images/wraps.png");
     background-size: 140%;
     background-repeat: no-repeat;
@@ -503,17 +580,26 @@ button{
 }
 
 .soups-cat{
-    left: 65%;
-    top: 58%;
+    left: 55%;
+    top: 53%;
     background: url("../public/images/soup.png");
     background-size: 140%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+.deserts-cat{
+    left: 15%;
+    top: 65%;
+    background: url("../public/images/svg/cookies.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .drinks-cat{
-    left: 5%;
-    top: 85%;
+    left: 55%;
+    top: 83%;
     background: url("../public/images/drinks.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -544,31 +630,6 @@ button{
 .menu-modal.active{
     opacity: 1;
     pointer-events: all;
-}
-
-
-.menu-line{
-    transition: stroke-dashoffset 500ms;
-}
-
-.salad-sandwich-line{
-    stroke-dasharray: 564;
-    stroke-dashoffset: var(--salad-sandwich-cur-scroll);
-}
-
-.sandwich-wrap-line{
-    stroke-dasharray: 409;
-    stroke-dashoffset: var(--sandwich-wrap-cur-scroll);
-}
-
-.wrap-soup-line{
-    stroke-dasharray: 667;
-    stroke-dashoffset: var(--wrap-soup-cur-scroll);
-}
-
-.soup-drink-line{
-    stroke-dasharray: 598;
-    stroke-dashoffset: var(--soup-drink-cur-scroll);
 }
 
 .x-btn{
@@ -789,28 +850,26 @@ button{
 }
 
 @media screen and (width < 1290px) {
-    .drinks-cat{
-        left: 5%;
-        top: 76%;
+    :root{
+        --title-text-size: 3rem;
+    }
+    .salad-cat{
+        left: 10%;
+        top: 10%;
     }
 }
 
 @media screen and (width < 1180px) {
     .salad-cat{
         left: 10%;
-        top: 20%;
+        top: 10%;
     }
 }
 
 @media screen and (width <= 1000px) {
     .salad-cat{
-        left: 10%;
-        top: 25%;
-    }
-
-    .drinks-cat{
         left: 5%;
-        top: 70%;
+        top: 10%;
     }
 
     /* Menu Modal */
@@ -823,12 +882,20 @@ button{
 
 @media screen and (width < 810px) {
     /* sustainability */
+    .sustainability{
+        color: white;
+        -webkit-text-stroke: 0.25px black;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.66);
+    }
     .sustainability .section-title{
         position: absolute;
         top: 35%;
         left:50%;
         transform: translate(-50%);
+        font-size: 4rem;
         z-index: 2;
+        width: 50%;
+        -webkit-text-stroke: transparent;
     }
     .sustainability .section-body{
         position: absolute;
@@ -849,36 +916,26 @@ button{
 
     /* Menu */
 
-    .menu-holder{
-        position: absolute;
-        top: 0%;
-        scale: 1 2;
-    }
-
     .salad-cat{
         left: 5%;
         top: 5%;
     }
 
     .sandwiches-cat{
-        left: 65%;
-        top: 22%;
+        left: 69%;
+        top: 26%;
     }
     
     .wraps-cat{
-        left: 0%;
-        top: 35%;
+        left: 15%;
+        top: 37%;
     }
     
     .soups-cat{
-        left: 65%;
-        top: 58%;
+        left: 60%;
+        top: 52%;
     }
     
-    .drinks-cat{
-        left: 5%;
-        top: 85%;
-    }
 
     /* Menu Modal */
 
@@ -911,6 +968,9 @@ button{
         --small-text-size: 0.5rem;
         --navbar-text-size: 1rem;
     }
+    .sustainability .section-title{
+        font-size: 3rem;
+    }
     .home .background-img{
         /* background-size: contain; */
         background-position: 50%;
@@ -937,13 +997,17 @@ button{
     }
     
     .drinks-cat{
-        left: 0%;
+        left: 55%;
         top: 72%;
     }
 }
 
 @media screen and (width < 400px) {
+    .sustainability .section-title{
+        font-size: var(--title-text-size);
+    }
     :root{
+        --title-text-size: 2rem;
         --large-text-size: 1.25rem;
         --medium-text-size: .85rem;
         --normal-text-size: .65rem;
@@ -984,6 +1048,13 @@ button{
         position: absolute;
         top: 0%;
         scale: 1 4;
+        display: none;
+    }
+
+    .mobile-lines{
+        position: absolute;
+        top: 0%;
+        scale: 1 1.25;
     }
 
     .salad-cat{
@@ -1004,14 +1075,14 @@ button{
     }
     
     .soups-cat{
-        left: 45%;
-        top: 54%;
+        left: 20%;
+        top: 50%;
         background-size: 100%;
     }
     
     .drinks-cat{
-        left: -5%;
-        top: 75%;
+        left: 40%;
+        top: 78%;
         background-size: contain;
     }
 }
