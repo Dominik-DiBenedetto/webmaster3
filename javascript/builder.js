@@ -17,6 +17,7 @@ import tomatoesUrl from "../models/tomatoes.glb";
 const [scene, camera, renderer, controls] = init(window.innerWidth, window.innerHeight, document.body);
 
 const ORDER_DIV = document.querySelector(".order-frame");
+const CHECKOUT_DIV = document.querySelector(".checkout");
 
 // Objects
 let plate, tongs, leftTong, rightTong = null;
@@ -88,6 +89,11 @@ const raycaster = new THREE.Raycaster();
 const plane = new THREE.Plane(new THREE.Vector3(0,0,1), 0);
 
 let foods = []
+let foodPositions = {
+  "lettuce": [1.5,1.06,0.1],
+  "tomatoes": [0.75,1.1,0.3],
+  "croutons": [0,1.1,0.25],
+}
 let foodOffsets = {
   "lettuce": {x: 0.15, y: 0.05, z: -0.85},
   "tomatoes": {x: 0, y: 0.05, z: -0.75},
@@ -121,6 +127,9 @@ function handleKeyboardInput(delta) {
 
     if (cameraPosition.x <= -12.94) cameraPosition.x = -12.94;
     if (cameraPosition.x >= 8.2) cameraPosition.x = 8.2;
+
+    if (cameraPosition.x <= -8.14 && cameraPosition.x >= -10.5) showCheckout(true); 
+    else showCheckout(false);
     camera.position.copy(cameraPosition);
     camera.rotation.setFromVector3(cameraRotation);
     if (camera.position.x < 2.324 && camera.position.x > -2.4) {
@@ -186,6 +195,21 @@ function handleTongs(delta)
   }
   if (tongs == null) {tongs = scene.getObjectByName("tongs"); tongs.rotation.setFromVector3(tongRot)};
   followMouse(tongs)
+}
+
+function showCheckout(show) {
+  if (show){
+    if (!CHECKOUT_DIV.classList.contains("active")) CHECKOUT_DIV.classList.add("active");
+    if (!CHECKOUT_DIV.querySelector(".order-frame")) {
+      let copy = ORDER_DIV.cloneNode(true);
+      copy.style = "";
+      CHECKOUT_DIV.querySelector(".order-reviews").appendChild(copy);
+    }
+    ORDER_DIV.classList.remove("active");
+  } else {
+    CHECKOUT_DIV.classList.remove("active");
+    ORDER_DIV.classList.add("active");
+  }
 }
 
 window.addEventListener("keydown", (e) => {
@@ -315,7 +339,11 @@ function createUIOrderItem(itemName){
     e.preventDefault();
     order[itemName] = null;
     foods.forEach(food => {
-      if (food.name == itemName) food.position.set(0,0,0);
+      if (food.name == itemName) {
+        food.position.set(...foodPositions[itemName]);
+
+        orderElm.remove();
+      };
     })
   })
 
@@ -328,6 +356,7 @@ function createUIOrderItem(itemName){
 
   document.querySelector(".orders").appendChild(orderElm);
   if (!ORDER_DIV.classList.contains("active")) ORDER_DIV.classList.add("active");
+  if (CHECKOUT_DIV.querySelector(".order-frame")) CHECKOUT_DIV.querySelector(".order-reviews").removeChild(CHECKOUT_DIV.querySelector(".order-frame"));
 }
 
 // Dragging
@@ -365,3 +394,16 @@ function dragElement(elm) {
     document.onmousemove = null;
   }
 }
+
+document.querySelector(".add-to-cart").addEventListener("click", (e) => {
+  e.preventDefault();
+  Object.keys(order).forEach((itemName) => {
+    // Check for item first
+    let cartItem = parseInt(localStorage.getItem(itemName) || 0);
+
+    // Increase quantity
+    cartItem += 1;
+    localStorage.setItem(itemName, cartItem);
+  })
+  alert("Added to cart!")
+})

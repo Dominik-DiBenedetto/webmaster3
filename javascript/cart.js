@@ -4,7 +4,11 @@ const cart = document.querySelector(".cart");
 const receiptItems = document.querySelector(".receipt-items");
 const receiptSubtotal = document.querySelector(".receipt-total");
 
-let menu = {};
+let menu = {
+    "lettuce": {"Price": 0.99, "Description": "Romain lettuce for a custom salad"},
+    "tomatoes": {"Price": 1.39, "Description": "Tomatoes for a custom salad"},
+    "croutons": {"Price": 0.49, "Description": "Croutons for a custom salad"}
+};
 let receipt = {}
 
 
@@ -51,11 +55,15 @@ function removeFromCart(itemName, quantityElm)
         let receiptPrice = receiptItem.querySelector(".receipt-price");
 
         let newPrice = (parseFloat(receiptPrice.textContent.replace("$",""))/cartItem) * (cartItem-1);
-        receiptItem.innerHTML = `${itemName} (x${cartItem-1}) <span class='receipt-price'>$${roundToTwo(newPrice)}</span>`;
+        receiptItem.innerHTML = `${capitalizeFirstLetter(itemName)} (x${cartItem-1}) <span class='receipt-price'>$${roundToTwo(newPrice)}</span>`;
 
         updateTotal();
     }
 }
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 function createCartItem(itemName, properties, quantityNum, parent)
 {
@@ -69,7 +77,7 @@ function createCartItem(itemName, properties, quantityNum, parent)
     name.classList.add("cart-item-name");
     
     let nameSpan = document.createElement("span");
-    nameSpan.textContent = itemName;
+    nameSpan.textContent = capitalizeFirstLetter(itemName);
     name.appendChild(nameSpan);
 
     let price = document.createElement("div")
@@ -119,7 +127,7 @@ function addReceiptItem(itemName, itemQuantity, itemPrice)
     let item = document.createElement("div");
     item.classList.add("receipt-item");
     item.id = itemName.replace(" ", "-");
-    item.textContent = `${itemName} (x${itemQuantity})`
+    item.textContent = `${capitalizeFirstLetter(itemName)} (x${itemQuantity})`
 
     let priceTotal = document.createElement("span");
     priceTotal.classList.add("receipt-price");

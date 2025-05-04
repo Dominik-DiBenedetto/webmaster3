@@ -1,4 +1,6 @@
 import menuData from "../public/menu.json";
+import sandwichPic from "../public/images/svg/sandwich.svg";
+import saladPic from "../public/images/svg/salad.svg"
 
 const sections_holder = document.querySelector(".scroll-transition-sections");
 const root_icon = document.querySelector("root-icon");
@@ -18,6 +20,11 @@ function scrollTransitions(screenHeightScrolled){
         scrollShouldTransition = true;
         htmlElm.style.setProperty("--p1-scroll", Math.min(screenHeightScrolled*100, 100));
         htmlElm.style.setProperty("--p2-scroll", 0);
+        htmlElm.style.setProperty("--p3-scroll", 0);
+        htmlElm.style.setProperty("--p4-scroll", 0);
+        htmlElm.style.setProperty("--p5-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
     } else if (screenHeightScrolled < 2) { // P2
@@ -25,6 +32,10 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--p1-scroll", 100);
         htmlElm.style.setProperty("--p2-scroll", Math.min((screenHeightScrolled-0.1)*100, 200));
         htmlElm.style.setProperty("--p3-scroll", 0);
+        htmlElm.style.setProperty("--p4-scroll", 0);
+        htmlElm.style.setProperty("--p5-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
     } else if (screenHeightScrolled < 3) { // P2
@@ -33,6 +44,10 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--p2-scroll", 200);
         htmlElm.style.setProperty("--p2s2-scroll", Math.min((screenHeightScrolled-2)*100, 100));
         htmlElm.style.setProperty("--p3-scroll", 0);
+        htmlElm.style.setProperty("--p4-scroll", 0);
+        htmlElm.style.setProperty("--p5-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--recycle-bin-scroll", 0)
         htmlElm.style.setProperty("--top-scroll", 0);
@@ -53,6 +68,9 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--recycle-bin-scroll", (screenHeightScrolled-3)*100);
         htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-4.6)*100, 100));
         htmlElm.style.setProperty("--p4-scroll", 0);
+        htmlElm.style.setProperty("--p5-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
     } else if (screenHeightScrolled < 6.6) {
@@ -62,6 +80,8 @@ function scrollTransitions(screenHeightScrolled){
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
         htmlElm.style.setProperty("--p5-scroll", 0);
+        htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
     }
     else if (screenHeightScrolled < 7.6) {
         scrollShouldTransition = true;
@@ -70,6 +90,7 @@ function scrollTransitions(screenHeightScrolled){
         document.querySelector(".scroll-transition-sections").classList.remove("inactive");
         htmlElm.style.setProperty("--top-scroll", 0);
         htmlElm.style.setProperty("--p6-scroll", 0);
+        htmlElm.style.setProperty("--p7-scroll", 0);
     }
     else if (screenHeightScrolled < 8.6) {
         scrollShouldTransition = true;
@@ -215,8 +236,22 @@ if (menuData != null) {
     }
 }
 
+const modal_url = document.querySelector(".image-side");
 function openMenu(menuId)
 {
+    switch (menuId) {
+        case "salads":
+            modal_url.style.backgroundImage = `url(${saladPic})`;
+            break;
+        case "sandwiches":
+            modal_url.style.backgroundImage = `url(${sandwichPic})`;
+            break;
+
+    
+        default:
+            console.log('sa', menuId)
+            break;
+    }
     document.querySelector(".menu-active").classList.remove("menu-active");
     document.querySelector(`.${menuId.toLowerCase()}-menu`).classList.add("menu-active");
 
@@ -240,5 +275,6 @@ function addToCart(itemName)
     cartItem += 1;
     localStorage.setItem(itemName, cartItem);
 }
+
 
 console.log(document.querySelector(".place-name"))
