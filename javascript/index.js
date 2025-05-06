@@ -211,7 +211,6 @@ window.addEventListener("scroll", (e) => {
 
     console.log(window.getComputedStyle(document.querySelector(".menu-holder")).display)
     if (window.getComputedStyle(document.querySelector(".menu-holder")).display != "none") {
-        console.log(menuScrollHeight)
         let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 4.5, 4.15, menuScrollHeight);
         htmlElm.style.setProperty("--salad-sandwich-cur-scroll", saladSandDashoffset);
 
@@ -227,13 +226,14 @@ window.addEventListener("scroll", (e) => {
         let desertDrinkDashoffset = getMenuLineDashoffset(desert_drink_line, 5.15, 4.97, menuScrollHeight);
         htmlElm.style.setProperty("--desert-drink-cur-scroll", desertDrinkDashoffset);
     } else {
+        console.log(menuScrollHeight)
         let saladSandDashoffset = getMenuLineDashoffset(mobile_salad_sand_line, 4.5, 4.17, menuScrollHeight);
         htmlElm.style.setProperty("--mobile-salad-sandwich-cur-scroll", saladSandDashoffset);
 
-        let sandWrapDashoffset = getMenuLineDashoffset(mobile_sand_wrap_line, 4.75, 4.56, menuScrollHeight, true);
+        let sandWrapDashoffset = getMenuLineDashoffset(mobile_sand_wrap_line, 4.75, 4.45, menuScrollHeight, true);
         htmlElm.style.setProperty("--mobile-sandwich-wrap-cur-scroll", sandWrapDashoffset);
 
-        let wrapSoupDashoffset = getMenuLineDashoffset(mobile_wrap_soup_line, 4.85, 4.75, menuScrollHeight);
+        let wrapSoupDashoffset = getMenuLineDashoffset(mobile_wrap_soup_line, 4.78, 4.65, menuScrollHeight);
         htmlElm.style.setProperty("--mobile-wrap-soup-cur-scroll", wrapSoupDashoffset);
 
         let soupDesertDashoffset = getMenuLineDashoffset(mobile_soup_desert_line, 5.06, 4.8, menuScrollHeight);

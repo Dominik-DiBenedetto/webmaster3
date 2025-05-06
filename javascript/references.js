@@ -7,7 +7,7 @@ const pdf_link = document.querySelector(".view-in-tab")
 const WORKLOGS_PATH = "/documents/testworklogs.pdf";
 const CHECKLIST_PATH = "/documents/CopyrightChecklist.pdf";
 
-const open_modal = (document) => {
+function open_modal(document) {
     if (document == "worklogs") {
         pdf_viewer.src = WORKLOGS_PATH;
         pdf_link.href = WORKLOGS_PATH;
@@ -21,3 +21,6 @@ const open_modal = (document) => {
 close_btn.addEventListener("click", () => {
     modal.classList.remove("active")
 })
+
+document.querySelector(".copyright-checklist-popup").addEventListener("click", (e) => open_modal("checklist"));
+document.querySelector(".worklogs-popup").addEventListener("click", (e) => open_modal("worklogs"));

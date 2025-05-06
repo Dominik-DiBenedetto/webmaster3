@@ -7,6 +7,10 @@ body{
 .citation{
     display: flex;
     flex-direction: column;
+    padding-left: 36px;
+    text-indent: -36px;
+    max-width: 80%;
+    width: 600px;
 }
 
 .asset-title{
@@ -41,6 +45,10 @@ body{
     width: 90%;
     height: 90%;
     pointer-events: none;
+}
+
+.modal.active .pdf-holder{
+    pointer-events: all;
 }
 
 .actions{
