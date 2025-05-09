@@ -19,12 +19,18 @@
     --navbar-text-size: 1.25rem;
 }
 
+html{
+    height: 100vh;
+    margin: 0;
+}
+
 body{
     margin: 0;
     background-color: var(--main-bg);
     font-family: 'Times New Roman', Times, serif;
     width: 100vw;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 html{
@@ -113,7 +119,7 @@ body{
 }
 
 .loading-screen{
-    height: calc(100vh - var(--navbar-height));
+    height: 100vh;
     width: 100vw;
     position: absolute;
     top: var(--navbar-height);
@@ -124,7 +130,7 @@ body{
 
 .loading-title{
     position: absolute;
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50vw;
@@ -285,6 +291,7 @@ body{
 
     display: none;
     padding-bottom: 1rem;
+    resize: none;
 }
 
 .title{
@@ -295,17 +302,18 @@ body{
 
 .more-options{
     width: 100%;
-    height: 35%;
+    height: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.387);
 }
 
 .review-order{
     width: 100%;
-    height: 60%;
+    height: 80%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    resize: none;
 }
 
 .order-reviews{
@@ -321,6 +329,7 @@ body{
     width: 100%;
     height: 100%;
     cursor: default;
+    resize: none;
 }
 
 .order-reviews .order-frame .header{
@@ -338,6 +347,26 @@ body{
     outline: none;
     border: 1px solid rgb(62, 62, 62);
     font-weight: bold;
-    background-color: rgb(67, 108, 197);
+    background-color: rgb(87, 136, 243);
     color: #ddd;
+}
+
+.controls{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items:st;
+    justify-content: center;
+    flex-direction: column;
+}
+.control{
+    color: white;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgb(0, 0, 0);
+    -webkit-text-stroke: 0.15px black;
 }

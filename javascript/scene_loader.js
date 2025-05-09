@@ -60,7 +60,14 @@ function onTransitionEnd( event ) {
 }
 
 // Loading manager is used to easily implement loading screens
-const loadingManager = new THREE.LoadingManager( () => {
+const loadingManager = new THREE.LoadingManager();
+
+loadingManager.onProgress = function ( _, itemsLoaded, itemsTotal ) {
+    let loadLabel = document.querySelector(".loading-progress");
+	loadLabel.innerText = `Loaded ${itemsLoaded} of ${itemsTotal} files.`;
+};
+
+loadingManager.onLoad =  () => {
 	
     const loadingScreen = document.querySelector('.loading-screen');
     loadingScreen.classList.add('fade-out');
@@ -68,7 +75,7 @@ const loadingManager = new THREE.LoadingManager( () => {
     // optional: remove loader from DOM via event listener
     loadingScreen.addEventListener( 'transitionend', onTransitionEnd );
     
-});
+}
 
 // Load Objects
 
@@ -89,7 +96,7 @@ function degToRadians(rot){
     return rads;
 }
 
-export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], scale=[1,1,1], rotation=[0,0,0], shouldZeroChildren=false)
+export function loadModel(modelName, scene, position=[0,0,0], scale=[1,1,1], rotation=[0,0,0], shouldZeroChildren=false)
 {
     if (modelName.includes("fbx")) {
         fbxLoader.load(
@@ -109,11 +116,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
                 scene.add(object)
             },
             (xhr) => {
-                if (loadingProg){
-                    loadingProg.innerText = `${(xhr.loaded / xhr.total) * 100}% loaded`;
-                } else {
-                    console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
-                }
+                console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
             },
             (error) => {
                 console.log(error)
@@ -154,11 +157,7 @@ export function loadModel(modelName, scene, loadingProg=null, position=[0,0,0], 
             scene.add(mesh)
         },
         (xhr) => {
-            if (loadingProg){
-                loadingProg.innerText = `${Math.round(((xhr.loaded / xhr.total) * 100)*100)/100}% loaded`;
-            } else {
-                console.log(modelName + " " + (xhr.loaded / xhr.total) * 100 + '% loaded');
-            }
+            console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
         },
         (error) => {
             console.log(error)

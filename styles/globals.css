@@ -33,14 +33,14 @@
     --salad-sandwich-cur-scroll: 4136;
     --sandwich-wrap-cur-scroll: 2167;
     --wrap-soup-cur-scroll: 4082;
-    --soup-desert-cur-scroll: 5390;
-    --desert-drink-cur-scroll: 3699;
+    --soup-dessert-cur-scroll: 5390;
+    --dessert-drink-cur-scroll: 3699;
 
     --mobile-salad-sandwich-cur-scroll: 913;
     --mobile-sandwich-wrap-cur-scroll: 716;
     --mobile-wrap-soup-cur-scroll: 800;
-    --mobile-soup-desert-cur-scroll: 834;
-    --mobile-desert-drink-cur-scroll: 1744;
+    --mobile-soup-dessert-cur-scroll: 834;
+    --mobile-dessert-drink-cur-scroll: 1744;
 }
 
 html{
@@ -237,6 +237,8 @@ button{
     top: -600%;
     right: calc(1% * (100 - var(--p4-scroll)));
     z-index: 7;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.66);
 }
 
 
@@ -244,7 +246,7 @@ button{
 .section.process4-transition-page{
     top: -500%;
     left: calc(1% * (100 - var(--p4-scroll)));
-    background-color: #bfbfb3;
+    background-color: #bfbfb3a8;
     z-index: 6;
 }
 
@@ -253,6 +255,8 @@ button{
     left: calc(1% * (100 - var(--p5-scroll)));
     box-shadow: 5px -15px 15px #747474;
     z-index: 8;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.66);
 }
 
 .section.process6{
@@ -387,6 +391,7 @@ button{
     background-repeat: no-repeat;
     background-position: center;
     z-index: 5;
+    border: none;
 }
 
 .recycle-bin image{
@@ -400,29 +405,69 @@ button{
     height: 50%;
 }
 
-.section-image.farm-image{
+.section-image{
     position: absolute;
-    background: url("../public/images/farm.jpg");
-    background-position: center;
-    background-size: cover;
     z-index: -1;
     width: 100%;
     height: 100%;
     top: 0;
-    filter: brightness(150%) saturate(120%);
+    
 }
 
-.section-image.farm-image::before{
+.section-image::before{
     content: '';
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, #8F857E, 75%, transparent);
     left:0;
     top:0;
 }
 
-.section-image.order-image{
+.farm-image{
+    background: url("../public/images/farm.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(150%) saturate(120%);
+}
+
+.farm-image::before{
+    background: linear-gradient(180deg, #8F857E, 75%, transparent);
+}
+
+.kitchen-image{
+    background: url("../public/images/kitchen.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(110%) saturate(120%);
+}
+
+.kitchen-image::before{
+    background: linear-gradient(180deg, #8F857E, 60%, transparent);
+}
+
+.cleaning-image{
+    background: url("../public/images/cleaning.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(120%) saturate(120%);
+}
+
+.cleaning-image::before{
+    background: linear-gradient(180deg, #8F857E, 55%, transparent);
+}
+
+.order-taking-image{
+    background: url("../public/images/ordertaking.jpg");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(130%) saturate(110%);
+}
+
+.order-taking-image::before{
+    background: linear-gradient(180deg, #8F857E, 65%, transparent);
+}
+
+.order-image{
     position: absolute;
     background: url("../public/images/process-step-4-bg.png");
     background-position: center;
@@ -454,8 +499,8 @@ button{
 /* Station */
 .cutting-image{
     position: absolute;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     right: 50%;
     transform: translateX(50%);
@@ -465,7 +510,11 @@ button{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* filter: blur(0.75px) brightness(100%); */
+    filter: blur(1px) brightness(90%);
+}
+
+.cutting-image::before{
+    background: linear-gradient(180deg, #8F857E, 20%, transparent);
 }
 
 @keyframes root-logo-draw {
@@ -543,14 +592,14 @@ button{
     stroke-dashoffset: var(--wrap-soup-cur-scroll);
 }
 
-.soup-desert-line{
+.soup-dessert-line{
     stroke-dasharray: 5390;
-    stroke-dashoffset: var(--soup-desert-cur-scroll);
+    stroke-dashoffset: var(--soup-dessert-cur-scroll);
 }
 
-.desert-drink-line{
+.dessert-drink-line{
     stroke-dasharray: 3699;
-    stroke-dashoffset: var(--desert-drink-cur-scroll);
+    stroke-dashoffset: var(--dessert-drink-cur-scroll);
 }
 
 /* Mobile menu lines */
@@ -579,14 +628,14 @@ button{
     stroke-dashoffset: var(--mobile-wrap-soup-cur-scroll);
 }
 
-.mobile.soup-desert-line{
+.mobile.soup-dessert-line{
     stroke-dasharray: 834;
-    stroke-dashoffset: var(--mobile-soup-desert-cur-scroll);
+    stroke-dashoffset: var(--mobile-soup-dessert-cur-scroll);
 }
 
-.mobile.desert-drink-line{
+.mobile.dessert-drink-line{
     stroke-dasharray: 1744;
-    stroke-dashoffset: var(--mobile-desert-drink-cur-scroll);
+    stroke-dashoffset: var(--mobile-dessert-drink-cur-scroll);
 }
 
 /* More menu stuff */
@@ -893,6 +942,8 @@ button{
 .footer-link{
     font-size: 1.5rem;
     font-weight: 800;
+    color: var(--secondary-fg);
+    text-decoration: underline;
 }
 
 /* Media Queries! */
@@ -1048,6 +1099,11 @@ button{
 }
 
 @media screen and (width < 610px) {
+
+    [data-label="Salad Builder"]{
+        display: none;
+    }
+
     :root{
         --large-text-size: 1.5rem;
         --medium-text-size: 1rem;

@@ -23,25 +23,25 @@ const CHECKOUT_DIV = document.querySelector(".checkout");
 let plate, tongs, leftTong, rightTong = null;
 
 // Building
-loadModel(modelUrl, scene, document.querySelector(".loading-progress"));
-loadModel(plateStack, scene, null, [2.324, 0.993, 1.425], [0.2,0.2,0.2]);
-loadModel(plateUrl, scene, null, [2.324, 1.029, 1.425], [0.2,0.2,0.2]);
-loadModel(tongUrl, scene, null, [2.324, 1.029, 1.425], [0.2,0.2,0.2]);
+loadModel(modelUrl, scene);
+loadModel(plateStack, scene, [2.324, 0.993, 1.425], [0.2,0.2,0.2]);
+loadModel(plateUrl, scene, [2.324, 1.029, 1.425], [0.2,0.2,0.2]);
+loadModel(tongUrl, scene, [2.324, 1.029, 1.425], [0.2,0.2,0.2]);
 
 // Food Trays
-loadModel(trayUrl, scene, null, [1.5,1.06,0.1], [0.035,0.035,.035])
-loadModel(trayUrl, scene, null, [0.75,1.06,0.1], [0.035,0.035,.035])
-loadModel(trayUrl, scene, null, [0,1.06,0.1], [0.035,0.035,.035])
-loadModel(trayUrl, scene, null, [-0.75,1.06,0.1], [0.035,0.035,.035])
+loadModel(trayUrl, scene, [1.5,1.06,0.1], [0.035,0.035,.035])
+loadModel(trayUrl, scene, [0.75,1.06,0.1], [0.035,0.035,.035])
+loadModel(trayUrl, scene, [0,1.06,0.1], [0.035,0.035,.035])
+loadModel(trayUrl, scene, [-0.75,1.06,0.1], [0.035,0.035,.035])
 
-loadModel(containerUrl, scene, null, [-1.721, 1.130, 0], [0.098, 0.077, 0.155], undefined, true);
-loadModel(containerUrl, scene, null, [-1.468, 1.130, 0], [0.098, 0.077, 0.155], undefined, true);
+loadModel(containerUrl, scene, [-1.721, 1.130, 0], [0.098, 0.077, 0.3], undefined, true);
+loadModel(containerUrl, scene, [-1.468, 1.130, 0], [0.098, 0.077, 0.3], undefined, true);
 
 // Food
-loadModel(lettuceUrl, scene, null, [1.5,1.06,0.1], [0.05,0.05,.05])
-loadModel(dressingsUrl, scene, null, [-1.981, 1, -.6], [.25, .25, .25], [0,-90,0], true);
-loadModel(tomatoesUrl, scene, null, [0.75,1.1,0.3], [0.0015,0.0015,0.0015], undefined,true);
-loadModel(croutonUrl, scene, null, [0,1.1,0.25], [0.005,0.005,0.005], undefined,true);
+loadModel(lettuceUrl, scene, [1.5,1.06,0.1], [0.05,0.05,.05])
+loadModel(dressingsUrl, scene, [-1.981, 1, -.6], [.25, .25, .25], [0,-90,0], true);
+loadModel(tomatoesUrl, scene, [0.75,1.1,0.3], [0.0015,0.0015,0.0015], undefined,true);
+loadModel(croutonUrl, scene, [-1.5,1.2,-0.65], [.075,.075,.075], [90,0,90],true);
 
 // LIGHTING \\
 const paintingLight1 = new THREE.PointLight(0xF2DDC5, 1.92)
@@ -92,12 +92,12 @@ let foods = []
 let foodPositions = {
   "lettuce": [1.5,1.06,0.1],
   "tomatoes": [0.75,1.1,0.3],
-  "croutons": [0,1.1,0.25],
+  "croutons": [-1.5,1.2,-0.65],
 }
 let foodOffsets = {
   "lettuce": {x: 0.15, y: 0.05, z: -0.85},
   "tomatoes": {x: 0, y: 0.05, z: -0.75},
-  "croutons": {x: 0, y: 0.1, z: -0.7},
+  "croutons": {x: 0.1, y: 0.2, z: -0.6},
 }
 
 // State
@@ -169,6 +169,7 @@ function handleTongs(delta)
       let foodItem = checkForFood();
       if (foodItem == null) return;
       console.log(foodItem.parent.name)
+      if (foodItem.parent.name == "croutons") foodItem.parent.rotation.setFromVector3(new THREE.Vector3(-90,0,-90))
       let offset = foodOffsets[foodItem.parent.name];
       
       foodTween = new TWEEN.Tween(foodItem.parent.position).to({ x: platePos.x+offset.x, y: platePos.y+offset.y, z: platePos.z+offset.y }, 500).easing(TWEEN.Easing.Cubic.In).start();
@@ -275,18 +276,15 @@ function animate() { // render loop
   if (foods.length < Object.keys(foodOffsets).length) {
     if (foods.length < 1) {
       let lettuce = scene.getObjectByName("lettuce");
-      if (lettuce == null) return;
-      foods.push(lettuce);
+      if (lettuce != null) foods.push(lettuce);
     }
     if (foods.length < 2) {
       let tomatoes = scene.getObjectByName("tomatoes");
-      if (tomatoes == null) return;
-      foods.push(tomatoes);
+      if (tomatoes != null) foods.push(tomatoes);
     }
     if (foods.length < 3) {
       let croutons = scene.getObjectByName("croutons");
-      if (croutons == null) return;
-      foods.push(croutons);
+      if (croutons != null) foods.push(croutons);
     }
     console.log(foods)
   }
@@ -295,6 +293,7 @@ function animate() { // render loop
 function render() {
     renderer.render(scene, camera);
 }
+
 
 animate();
 

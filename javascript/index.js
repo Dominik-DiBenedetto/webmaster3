@@ -2,6 +2,7 @@ import menuData from "../public/menu.json";
 import sandwichPic from "../public/images/svg/sandwich.svg";
 import saladPic from "../public/images/svg/salad.svg";
 import cookiePic from "../public/images/svg/cookies.svg";
+import soupPic from "../public/images/svg/soup.svg";
 
 const sections_holder = document.querySelector(".scroll-transition-sections");
 const root_icon = document.querySelector("root-icon");
@@ -33,7 +34,7 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--top-scroll", 0);
 
         // Change navbar highlighting
-        document.querySelector(".active").classList.remove("active");
+        document.querySelector("button.active").classList.remove("active");
         document.querySelector("[data-label='Home']").classList.add("active");
     } else if (screenHeightScrolled < 2) { // P2
         scrollShouldTransition = true;
@@ -50,8 +51,8 @@ function scrollTransitions(screenHeightScrolled){
         htmlElm.style.setProperty("--top-scroll", 0);
 
         // Change navbar highlighting
-        document.querySelector(".active").classList.remove("active");
-        document.querySelector("[data-label='Farm-to-table']").classList.add("active");
+        document.querySelector("button.active").classList.remove("active");
+        document.querySelector("[data-label='Farm-to-Table']").classList.add("active");
     } else if (screenHeightScrolled < 3) { // P2
         scrollShouldTransition = true;
         htmlElm.style.setProperty("--p1-scroll", 100);
@@ -109,7 +110,7 @@ function scrollTransitions(screenHeightScrolled){
         recyclingBio2.style.display = "block";
 
         // Change navbar highlighting
-        document.querySelector(".active").classList.remove("active");
+        document.querySelector("button.active").classList.remove("active");
         document.querySelector("[data-label='Our Process']").classList.add("active");
     }
     else if (screenHeightScrolled < 7.6) {
@@ -149,7 +150,7 @@ function scrollTransitions(screenHeightScrolled){
         recyclingBio2.style.display = "block";
 
         // Change navbar highlighting
-        document.querySelector(".active").classList.remove("active");
+        document.querySelector("button.active").classList.remove("active");
         document.querySelector("[data-label='Our Process']").classList.add("active");
     } else if (scrollShouldTransition) {
         scrollShouldTransition = false;
@@ -157,15 +158,15 @@ function scrollTransitions(screenHeightScrolled){
         document.querySelector(".scroll-transition-sections").classList.add("inactive");
         htmlElm.style.setProperty("--top-scroll", screenHeightScrolled*100);
         // Change navbar highlighting
-        document.querySelector(".active").classList.remove("active");
+        document.querySelector("button.active").classList.remove("active");
         document.querySelector("[data-label='Our Process']").classList.add("active");
     } else {
         // Change navbar highlighting
         if (screenHeightScrolled < 12.6) {
-            document.querySelector(".active").classList.remove("active");
+            document.querySelector("button.active").classList.remove("active");
             document.querySelector("[data-label='Menu']").classList.add("active");
         } else {
-            document.querySelector(".active").classList.remove("active");
+            document.querySelector("button.active").classList.remove("active");
             document.querySelector("[data-label='Location']").classList.add("active");
         }
     }
@@ -174,14 +175,14 @@ function scrollTransitions(screenHeightScrolled){
 const salad_sand_line = document.querySelector(".menu-holder g .salad-sandwich-line");
 const sand_wrap_line = document.querySelector(".menu-holder g .sandwich-wrap-line");
 const wrap_soup_line = document.querySelector(".menu-holder g .wrap-soup-line");
-const soup_desert_line = document.querySelector(".menu-holder g .soup-desert-line");
-const desert_drink_line = document.querySelector(".menu-holder g .desert-drink-line");
+const soup_desert_line = document.querySelector(".menu-holder g .soup-dessert-line");
+const desert_drink_line = document.querySelector(".menu-holder g .dessert-drink-line");
 
 const mobile_salad_sand_line = document.querySelector(".mobile.salad-sandwich-line");
 const mobile_sand_wrap_line = document.querySelector(".mobile.sandwich-wrap-line");
 const mobile_wrap_soup_line = document.querySelector(".mobile.wrap-soup-line");
-const mobile_soup_desert_line = document.querySelector(".mobile.soup-desert-line");
-const mobile_desert_drink_line = document.querySelector(".mobile.desert-drink-line");
+const mobile_soup_desert_line = document.querySelector(".mobile.soup-dessert-line");
+const mobile_desert_drink_line = document.querySelector(".mobile.dessert-drink-line");
 
 function getMenuLineDashoffset(element, rangeTop, rangeBottom, scrollHeight, reverse=false){
     if (!reverse){
@@ -221,10 +222,10 @@ window.addEventListener("scroll", (e) => {
         htmlElm.style.setProperty("--wrap-soup-cur-scroll", wrapSoupDashoffset);
 
         let soupDesertDashoffset = getMenuLineDashoffset(soup_desert_line, 4.97, 4.75, menuScrollHeight);
-        htmlElm.style.setProperty("--soup-desert-cur-scroll", soupDesertDashoffset);
+        htmlElm.style.setProperty("--soup-dessert-cur-scroll", soupDesertDashoffset);
 
         let desertDrinkDashoffset = getMenuLineDashoffset(desert_drink_line, 5.15, 4.97, menuScrollHeight);
-        htmlElm.style.setProperty("--desert-drink-cur-scroll", desertDrinkDashoffset);
+        htmlElm.style.setProperty("--dessert-drink-cur-scroll", desertDrinkDashoffset);
     } else {
         console.log(menuScrollHeight)
         let saladSandDashoffset = getMenuLineDashoffset(mobile_salad_sand_line, 4.5, 4.17, menuScrollHeight);
@@ -237,10 +238,10 @@ window.addEventListener("scroll", (e) => {
         htmlElm.style.setProperty("--mobile-wrap-soup-cur-scroll", wrapSoupDashoffset);
 
         let soupDesertDashoffset = getMenuLineDashoffset(mobile_soup_desert_line, 5.06, 4.8, menuScrollHeight);
-        htmlElm.style.setProperty("--mobile-soup-desert-cur-scroll", soupDesertDashoffset);
+        htmlElm.style.setProperty("--mobile-soup-dessert-cur-scroll", soupDesertDashoffset);
 
         let desertDrinkDashoffset = getMenuLineDashoffset(mobile_desert_drink_line, 5.15, 4.9, menuScrollHeight);
-        htmlElm.style.setProperty("--mobile-desert-drink-cur-scroll", desertDrinkDashoffset);
+        htmlElm.style.setProperty("--mobile-dessert-drink-cur-scroll", desertDrinkDashoffset);
     }
 })
 
@@ -336,6 +337,8 @@ function openMenu(menuId)
             break;
         case "deserts":
             modal_url.style.backgroundImage = `url(${cookiePic})`;
+        case "soups":
+            modal_url.style.backgroundImage = `url(${soupPic})`;
 
     
         default:

@@ -5,7 +5,7 @@ const receiptItems = document.querySelector(".receipt-items");
 const receiptSubtotal = document.querySelector(".receipt-total");
 
 let menu = {
-    "lettuce": {"Price": 0.99, "Description": "Romain lettuce for a custom salad"},
+    "lettuce": {"Price": 0.99, "Description": "Romaine lettuce for a custom salad"},
     "tomatoes": {"Price": 1.39, "Description": "Tomatoes for a custom salad"},
     "croutons": {"Price": 0.49, "Description": "Croutons for a custom salad"}
 };
