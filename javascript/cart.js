@@ -149,3 +149,9 @@ function updateTotal()
     }
     receiptSubtotal.textContent = `Subtotal: $${roundToTwo(subtotal)}`;
 }
+
+document.querySelector(".complete-order").addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    alert("Order Completed!");
+})

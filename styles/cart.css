@@ -139,3 +139,12 @@
     font-size: var(--normal-text-size);
     font-weight: 500;
 }
+
+.complete-order{
+    height: 10%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--secondary-fg);
+    color:#e2e2e2;
+    font-size: var(--normal-text-size);
+}

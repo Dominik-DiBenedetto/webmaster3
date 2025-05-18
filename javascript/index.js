@@ -263,6 +263,29 @@ navbar_links.forEach((link) => {
     })
 })
 
+// Image Carousel
+const carousel = document.querySelector(".carousel");
+const slides = document.querySelectorAll(".c-img");
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function showSlide(slideNum)
+{
+    if (slideNum > slides.length) slideIndex = 1;
+    else if (slideNum < 1) slideIndex = slides.length;
+
+    console.log(slideIndex)
+
+    slides.forEach((slide) => {slide.classList.remove("active-img")});
+
+    let slide = document.querySelector(`.c-img-${slideIndex}`);
+    slide.classList.add("active-img");
+}
+
+document.querySelector(".prev-img").addEventListener("click", () => {slideIndex-=1;showSlide(slideIndex)});
+document.querySelector(".next-img").addEventListener("click", () => {slideIndex+=1;showSlide(slideIndex)});
+
+
 // Populate menu
 if (menuData != null) {
     for (const [cat, item] of Object.entries(menuData)) {

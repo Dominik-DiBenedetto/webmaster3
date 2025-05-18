@@ -3,6 +3,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
     "@tweenjs/tween.js": "^25.0.0",
     "three": "^0.173.0"
   },

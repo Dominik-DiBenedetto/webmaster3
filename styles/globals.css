@@ -107,6 +107,11 @@ button{
     font-size: var(--title-text-size);
 }
 
+.section-subtitle{
+    font-size: var(--large-text-size);
+    font-weight: bolder;
+}
+
 .section-body{
     position: relative;
     font-weight: 550;
@@ -284,7 +289,7 @@ button{
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: url("/public/images/salad-bar.png");
+    background: url("/public/images/Background1.jpg");
     background-size:cover;
     filter: blur(3px) brightness(70%);
     overflow: hidden;
@@ -421,6 +426,74 @@ button{
     height: 100vh;
     left:0;
     top:0;
+}
+
+.carousel{
+    position: absolute;
+    z-index: 1;
+    background: transparent;
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.carousel button{
+    width: 10%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.092);
+    font-size: var(--title-text-size);
+    color: white;
+}
+
+.c-img{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-position: center;
+    background-size: contain;
+}
+
+.c-img.active-img{
+    display: block;
+}
+
+.c-img-holder{
+    width: 80%;
+    height: 100%;
+    background-color: white;
+}
+
+.c-img-1{
+    background: url("../public/images/anotherfarm.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.c-img-2{
+    background: url("../public/images/fruits.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.c-img-3{
+    background: url("../public/images/farmerguys.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .farm-image{
