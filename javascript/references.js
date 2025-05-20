@@ -4,8 +4,8 @@ const close_btn = document.querySelector(".close")
 const pdf_viewer = document.querySelector(".pdf-holder");
 const pdf_link = document.querySelector(".view-in-tab")
 
-const WORKLOGS_PATH = "/documents/testworklogs.pdf";
-const CHECKLIST_PATH = "/documents/CopyrightChecklist.pdf";
+const WORKLOGS_PATH = "/public/documents/worklogs.pdf";
+const CHECKLIST_PATH = "/public/documents/copyrightchecklist.pdf";
 
 function open_modal(document) {
     if (document == "worklogs") {
