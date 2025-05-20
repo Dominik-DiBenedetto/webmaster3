@@ -210,7 +210,6 @@ window.addEventListener("scroll", (e) => {
     const menuScrollHeight = htmlElm.scrollTop/menu.clientHeight;
     // console.log(menuScrollHeight);
 
-    console.log(window.getComputedStyle(document.querySelector(".menu-holder")).display)
     if (window.getComputedStyle(document.querySelector(".menu-holder")).display != "none") {
         let saladSandDashoffset = getMenuLineDashoffset(salad_sand_line, 4.5, 4.15, menuScrollHeight);
         htmlElm.style.setProperty("--salad-sandwich-cur-scroll", saladSandDashoffset);
@@ -227,7 +226,6 @@ window.addEventListener("scroll", (e) => {
         let desertDrinkDashoffset = getMenuLineDashoffset(desert_drink_line, 5.15, 4.97, menuScrollHeight);
         htmlElm.style.setProperty("--dessert-drink-cur-scroll", desertDrinkDashoffset);
     } else {
-        console.log(menuScrollHeight)
         let saladSandDashoffset = getMenuLineDashoffset(mobile_salad_sand_line, 4.5, 4.17, menuScrollHeight);
         htmlElm.style.setProperty("--mobile-salad-sandwich-cur-scroll", saladSandDashoffset);
 
@@ -264,33 +262,32 @@ navbar_links.forEach((link) => {
 })
 
 // Image Carousel
-const carousel = document.querySelector(".carousel");
-const slides = document.querySelectorAll(".c-img");
-let slideIndex = 1;
-showSlide(slideIndex);
+// const carousel = document.querySelector(".carousel");
+// const slides = document.querySelectorAll(".c-img");
+// let slideIndex = 1;
+// showSlide(slideIndex);
 
-function showSlide(slideNum)
-{
-    if (slideNum > slides.length) slideIndex = 1;
-    else if (slideNum < 1) slideIndex = slides.length;
+// function showSlide(slideNum)
+// {
+//     if (slideNum > slides.length) slideIndex = 1;
+//     else if (slideNum < 1) slideIndex = slides.length;
 
-    console.log(slideIndex)
+//     console.log(slideIndex)
 
-    slides.forEach((slide) => {slide.classList.remove("active-img")});
+//     slides.forEach((slide) => {slide.classList.remove("active-img")});
 
-    let slide = document.querySelector(`.c-img-${slideIndex}`);
-    slide.classList.add("active-img");
-}
+//     let slide = document.querySelector(`.c-img-${slideIndex}`);
+//     slide.classList.add("active-img");
+// }
 
-document.querySelector(".prev-img").addEventListener("click", () => {slideIndex-=1;showSlide(slideIndex)});
-document.querySelector(".next-img").addEventListener("click", () => {slideIndex+=1;showSlide(slideIndex)});
+// document.querySelector(".prev-img").addEventListener("click", () => {slideIndex-=1;showSlide(slideIndex)});
+// document.querySelector(".next-img").addEventListener("click", () => {slideIndex+=1;showSlide(slideIndex)});
 
 
 // Populate menu
 if (menuData != null) {
     for (const [cat, item] of Object.entries(menuData)) {
         let menuTab = document.querySelector(`.${cat.toLowerCase()}-menu`);
-        console.log(menuTab)
         if (menuTab == null) continue;
         for (const [itemName, properties] of Object.entries(item)) {
             let menuItem = document.createElement("div");
@@ -358,24 +355,29 @@ function openMenu(menuId)
         case "sandwiches":
             modal_url.style.backgroundImage = `url(${sandwichPic})`;
             break;
-        case "deserts":
+        case "desserts":
             modal_url.style.backgroundImage = `url(${cookiePic})`;
+            break;
         case "soups":
             modal_url.style.backgroundImage = `url(${soupPic})`;
-
+            break;
+        case "wraps":
+            modal_url.style.backgroundImage = `url(${soupPic})`;
+            break;
+        case "beverages":
+            modal_url.style.backgroundImage = `url(${soupPic})`;
+            break;
     
         default:
-            console.log('sa', menuId)
             break;
     }
-    document.querySelector(".menu-active").classList.remove("menu-active");
+    if (document.querySelector(".menu-active") != null) document.querySelector(".menu-active").classList.remove("menu-active");
     document.querySelector(`.${menuId.toLowerCase()}-menu`).classList.add("menu-active");
 
     document.querySelector(".menu-modal").classList.add("active");
 }
 
 document.querySelectorAll(".menu-cat").forEach((cat) => {
-    console.log(cat)
     cat.addEventListener("click", (e) => {
         e.preventDefault();
         openMenu(cat.getAttribute("data-menu").toLowerCase());
@@ -391,6 +393,3 @@ function addToCart(itemName)
     cartItem += 1;
     localStorage.setItem(itemName, cartItem);
 }
-
-
-console.log(document.querySelector(".place-name"))

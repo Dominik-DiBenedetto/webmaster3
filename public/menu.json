@@ -1,209 +1,182 @@
 {
-    "salads": {
-        "House Salad": {
-            "Price": 8.99,
-            "Description": "Standard house salad with choices of romaine or iceberg lettuce, tomatoes, cucumber, red onions, croutons, and cheddar cheese.",
-            "Calories": 314
-        },
-        "Caesar Salad": {
-            "Price": 9.99,
-            "Description": "Romaine or iceberg lettuce with choices of croutons, olive oil, eggs, garlic, dijon mustard, and parmesan",
-            "Calories": 340
-        },
-        "Cucumber Salad": {
-            "Price": 4.99,
-            "Description": "Sliced cucumber choices of sesame seeds, sesame oil, chili oil, cream cheese, vinegar, onions, garlic, MSG, or sugar.",
-            "Calories": 450
-        },
-        "Wedge Salad": {
-            "Price": 9.99,
-            "Description": "An iceberg wedge topped with ranch, greek dressing or vinnaigrette, tomatoes, minced garlic, red onion, crumbled blue cheese, and balsamic dressing. ",
-            "Calories": 360
-        },
-        "Greek Salad": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+  "salads": {
+    "House Salad": {
+      "Price": 8.99,
+      "Description": "Standard house salad with choices of romaine or iceberg lettuce, tomatoes, cucumber, red onions, croutons, and cheddar cheese.",
+      "Calories": 315
     },
-    "sandwiches": {
-        "White Bean and Avocado Sandwich": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Chickpea Salad Sandwich": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Caprese Sandwich": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Mushroom Melts": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Grilled Cheese": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Veggie Pita": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+    "Caesar Salad": {
+      "Price": 9.99,
+      "Description": "Romaine or iceberg lettuce with choices of croutons, olive oil, eggs, garlic, dijon mustard, and parmesan",
+      "Calories": 340
     },
-    "wraps": {
-        "A wrap": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap2": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap3": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap4": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap5": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A wrap7": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+    "Cucumber Salad": {
+      "Price": 4.99,
+      "Description": "Sliced cucumber choices of sesame seeds, sesame oil, chili oil, cream cheese, vinegar, onions, garlic, MSG, or sugar.",
+      "Calories": 200
     },
-    "soups": {
-        "A soup": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup2": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup3": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup4": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup5": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup7": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+    "Wedge Salad": {
+      "Price": 7.99,
+      "Description": "An iceberg wedge topped with ranch, greek dressing or vinnaigrette, tomatoes, minced garlic, red onion, crumbled blue cheese, and balsamic dressing. ",
+      "Calories": 350
     },
-    "deserts": {
-        "Chocolate Chip Cookies": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Oatmeal Raisin Cookie": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "Apple Pie (Slice)": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup4": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup5": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A soup7": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+    "Greek Salad": {
+      "Price": 9.99,
+      "Description": "A classic made with vine-ripened tomatoes, red onion, crisp cucumbers, and olives which are tossed with olive oil and topped with feta cheese.",
+      "Calories": 325
     },
-    "drinks": {
-        "A drink": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink2": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink3": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink4": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink5": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink6": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        },
-        "A drink7": {
-            "Price": 9.99,
-            "Description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eveniet deserunt ea!",
-            "Calories": 340
-        }
+    "Corn and Avocado Salad": {
+      "Price": 8.99,
+      "Description": "Sweet corn that is smoked and tossed with a cherry tomatoes, red onion, cilantro and creamy avocado. Pumpkin seeds added for crunch.",
+      "Calories": 300
+    },
+    "Sweet Potato and Black Bean Salad": {
+      "Price": 9.99,
+      "Description": "Sweet potato cubes, black beans, red cabbage and avocado added to arugala or romaine lettuce. Topped with a chipotle lime vinnaigrette and pumpkin seeds for crunch.",
+      "Calories": 375
     }
+  },
+  "sandwiches": {
+    "White Bean and Avocado Sandwich": {
+      "Price": 8.99,
+      "Description": "Smashed White beans blended with lemon, garlic, and herbs layed on toasted whole grain bread. Avocado slices, cucumber, shredded carroits and baby spinach added on top.",
+      "Calories": 400
+    },
+    "Chickpea Salad Sandwich": {
+      "Price": 8.99,
+      "Description": "Mashed Chickpeas tossed with celery, red onion, fresh herbs, mayo and dijon mustard layed on toasted whole grain bread. Lettuce and tomatoes are added.",
+      "Calories": 325
+    },
+    "Caprese Sandwich": {
+      "Price": 10.99,
+      "Description": "Mozarella, vine-ripened tomatoes, and fresh basil stacked on ciabatta bread drizzled with balsamic glaze. ",
+      "Calories": 475
+    },
+    "Mushroom Mini Melts": {
+      "Price": 9.99,
+      "Description": "Wild mushrooms that are sauteed with herbs and then added onto small slices of toasted sourdough bread topped with swiss cheese. Comes with 3.",
+      "Calories": 340
+    },
+    "Grilled Cheese": {
+      "Price": 8.89,
+      "Description": "Your classic sour dough bread grilled with yuour choice of cheddar, american, muenster, or mozarella cheese grilled between.",
+      "Calories": 500
+    },
+    "Veggie Pita": {
+      "Price": 8.99,
+      "Description": "Fluffy pita bread stuffed with red peppers, eggplant, and roasted zucchini. lettuce vine-ripened tomatoes, and red onion are layed ontop with hummus on the side.",
+      "Calories": 300
+    },
+    "Lemon Herb Tofu and Veggie WRap ": {
+      "Price": 9.99,
+      "Description": "Grilled Lemon Herb Tofu wrapped with bell peppers, cucumber, shredded carrots and lettuce in a whole wheat wrap. ",
+      "Calories": 340
+    }
+  },
+  "soups": {
+    "Tomato Soup": {
+      "Price": 8.99,
+      "Description": "Vine-ripened tomatoes added to a vegetable broth with onions, garlic, and various seasonings. Bread is added on the side.",
+      "Calories": 400
+    },
+    "Broccolli Cheddar Soup": {
+      "Price": 8.99,
+      "Description": "A creamy cheddar soup with added fresh broccolli.",
+      "Calories": 360
+    },
+    "Tomato White Bean Soup": {
+      "Price": 8.99,
+      "Description": "Soup made with roasted white beans, tomatos, and various herbs.",
+      "Calories": 320
+    },
+    "Split Pea Soup": {
+      "Price": 8.99,
+      "Description": "Dried split peas cooked with carrots, celery, and onions which is then blended into a soup.",
+      "Calories": 250
+    },
+    "Butternut Squash Soup": {
+      "Price": 8.99,
+      "Description": "Butternut Squash is roasted with onions garlic and added to vegetable broth.",
+      "Calories": 330
+    },
+    "Spicy Sesame Carrot Soup": {
+      "Price": 8.99,
+      "Description": "Herbs are toasted with Carrots, a sesame sauce is added as well as red lentils. It is then added to a vegetable broth.",
+      "Calories": 300
+    },
+    "Cuban Black Bean Soup": {
+      "Price": 9.99,
+      "Description": "Slow cooked beans are simmered in sofritosand then blended to make a creamy flavorful soup.",
+      "Calories": 375
+    }
+  },
+  "beverages": {
+    "Water": {
+      "Price": 2.99,
+      "Description": "",
+      "Calories": 0
+    },
+    "Cola": {
+      "Price": 3.50,
+      "Description": "",
+      "Calories": 180
+    },
+    "Diet Cola": {
+      "Price": 4.99,
+      "Description": "",
+      "Calories": 200
+    },
+    "Lemonade": {
+      "Price": 4.29,
+      "Description": "",
+      "Calories": 120
+    },
+    "Orange Juice": {
+      "Price": 3.99,
+      "Description": "Fresh oranges squeezed into a pulp free beverage.",
+      "Calories": 112
+    },
+    "Sweet Tea": {
+      "Price": 2.49,
+      "Description": "Black tea mixed with honey and sugar.",
+      "Calories": 100
+    },
+    "Chai": {
+      "Price": 2.75,
+      "Description": "Black tea with milk and various spices.",
+      "Calories": 160
+    }
+  },
+  "wraps": {
+    "Breakfast Egg Burrito": {
+      "Price": 4.99,
+      "Description": "A delicious breakfast burrito with eggs, cheese, tomato, cilantro and more.",
+      "Calories": 402
+    },
+    "Granola Apple Wrap": {
+      "Price": 3.75,
+      "Description": "A unique wrap with tons of flavors. Includes peanut butter, apples, dried cranbarries, granola, and of course a touch of cinnamon for an extra punch of flavor!",
+      "Calories": 294
+    },
+    "Tangy Veggie Wrap": {
+      "Price": 4.49,
+      "Description": "A health boosting wrap packed with fiber! Contains ginger, red onion, mustard, and more!",
+      "Calories": 378
+    },
+    "Chickpea Wrap": {
+      "Price": 5.99,
+      "Description": "Cooked chickpeas, paprika, sriracha, and a touch of olive oil to create a delicious blend of flavors!",
+      "Calories": 436
+    },
+    "Sweet Potato Burrito": {
+      "Price": 7.49,
+      "Description": "A delicious burrito stuffed with sweet potatoes, black beans, and more!",
+      "Calories": 457
+    },
+    "Halloumi Wraps": {
+      "Price": 5.99,
+      "Description": "A wrap with chickpeas, our signature minty yogurt sauce, and halloumi cheese for a tasty, creamy wrap",
+      "Calories": 462
+    }
+  }
 }

@@ -874,7 +874,7 @@ button{
 .menu.menu-active{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: calc(var(--large-text-size) + 5rem);
 }
 
 .menu-item{
