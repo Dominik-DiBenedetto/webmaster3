@@ -3,7 +3,7 @@ import sandwichPic from "../public/images/svg/sandwich.svg";
 import saladPic from "../public/images/svg/salad.svg";
 import cookiePic from "../public/images/svg/cookies.svg";
 import soupPic from "../public/images/svg/soup.svg";
-import wrapsPic from "../public/images/wraps.jpg";
+import wrapsPic from "../public/images/svg/wraps.svg";
 import drinksPic from "../public/images/drinks.png";
 
 const sections_holder = document.querySelector(".scroll-transition-sections");
@@ -84,6 +84,7 @@ function scrollTransitions(screenHeightScrolled){
         }
     } else if (screenHeightScrolled < 5.6) {
         scrollShouldTransition = true;
+        htmlElm.style.setProperty("--p1-scroll", 100);
         htmlElm.style.setProperty("--p2s2-scroll", 100);
         htmlElm.style.setProperty("--recycle-bin-scroll", (screenHeightScrolled-3)*100);
         htmlElm.style.setProperty("--p3-scroll", Math.min((screenHeightScrolled-4.6)*100, 100));
