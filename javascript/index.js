@@ -3,6 +3,8 @@ import sandwichPic from "../public/images/svg/sandwich.svg";
 import saladPic from "../public/images/svg/salad.svg";
 import cookiePic from "../public/images/svg/cookies.svg";
 import soupPic from "../public/images/svg/soup.svg";
+import wrapsPic from "../public/images/wraps.jpg";
+import drinksPic from "../public/images/drinks.png";
 
 const sections_holder = document.querySelector(".scroll-transition-sections");
 const root_icon = document.querySelector("root-icon");
@@ -362,10 +364,10 @@ function openMenu(menuId)
             modal_url.style.backgroundImage = `url(${soupPic})`;
             break;
         case "wraps":
-            modal_url.style.backgroundImage = `url(${soupPic})`;
+            modal_url.style.backgroundImage = `url(${wrapsPic})`;
             break;
         case "beverages":
-            modal_url.style.backgroundImage = `url(${soupPic})`;
+            modal_url.style.backgroundImage = `url(${drinksPic})`;
             break;
     
         default:

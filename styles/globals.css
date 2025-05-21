@@ -763,8 +763,8 @@ button{
 .wraps-cat{
     left: 32%;
     top: 41%;
-    background: url("../public/images/wraps.png");
-    background-size: 140%;
+    background: url("../public/images/svg/wraps.svg");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }

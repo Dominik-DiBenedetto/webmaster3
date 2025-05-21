@@ -178,5 +178,37 @@
       "Description": "A wrap with chickpeas, our signature minty yogurt sauce, and halloumi cheese for a tasty, creamy wrap",
       "Calories": 462
     }
+  },
+  "desserts": {
+    "Chocolate Chip Cookie": {
+      "Price": 1.99,
+      "Description": "A crispy edge with a soft, gooey middle. The perfect texture with the right amount of chocolate.",
+      "Calories": 120
+    },
+    "Peanut Butter Brownie": {
+      "Price": 3.75,
+      "Description": "A fudgy brownie topped with peanut butter and crushed peanuts!",
+      "Calories": 380
+    },
+    "Oatmeal Raisin Cookie": {
+      "Price": 2.50,
+      "Description": "A homemade, crisp oatmeal raisin cookie!",
+      "Calories": 130
+    },
+    "Snickerdoodle": {
+      "Price": 5.99,
+      "Description": "A classic Snickerdoodle cookie.",
+      "Calories": 110
+    },
+    "Brownie": {
+      "Price": 7.49,
+      "Description": "A delicious, rich, and fudgy brownie topped with even more dark chocolate!",
+      "Calories": 320
+    },
+    "Blondie": {
+      "Price": 5.99,
+      "Description": "A buttery cookie bar with vanilla and hints of caramel.",
+      "Calories": 360
+    }
   }
 }
